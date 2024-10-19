@@ -1,0 +1,101 @@
+@import "../../styles/fonts.css";
+@import "../../styles/variables.css";
+
+.preFooter {
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    background-color: #FAF3EA;
+    padding: 40px 0;
+    justify-content: center;
+    gap: 55px;
+    height: 270px;
+   
+}
+
+.high, .warranty, .free, .support {
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 337px;
+    height: 70px;
+}
+
+.high-icon, .warranty-icon, .free-icon, .support-icon {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.high-text, .warranty-text, .free-text, .support-text {
+    
+}
+
+.high-text-title, .warranty-text-title, .free-text-title, .support-text-title {
+    font-family: var(--font-family-semibold);
+    color: #242424;
+    font-size: 25px;
+    width: 100%;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.high-text-desc, .warranty-text-desc, .free-text-desc, .support-text-desc {
+    font-family: var(--font-family-medium);
+    color: #898989;
+    font-size: 20px;
+    width: 100%;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.warranty {
+}
+
+.warranty-icon {
+}
+
+.warranty-text {
+}
+
+.warranty-text-title {
+}
+
+.warranty-text-desc {
+}
+
+.free {
+}
+
+.free-icon {
+}
+.free-text {
+}
+
+.free-text-title {
+}
+
+.free-text-desc {
+}
+
+.support {
+}
+
+.support-icon {
+}
+
+.support-text {
+
+}
+
+.support-text-title {
+
+}
+
+.support-text-desc {
+
+}  
+
