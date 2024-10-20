@@ -24,7 +24,7 @@ const Product = ({product}: Props ) => {
   }
 
   const handleSeeDetails = () => {
-    navigate(`/product/${product.id}/${convertToSlug(product.name)}`);
+    navigate(`/product/${product.id}/${product.sku}/${convertToSlug(product.name)}`);
   };
 
   return (
