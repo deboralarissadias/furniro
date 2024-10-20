@@ -2,7 +2,8 @@
   "name": "furniro",
   "version": "1.0.0",
   "scripts": {
-    "start": "concurrently \"npm start --prefix furniro-backend\" \"npm start --prefix furniro-frontend\""
+    "start": "concurrently \"npm start --prefix furniro-backend\" \"npm start --prefix furniro-frontend\"",
+    "install-all": "npm install && npm install --prefix furniro-backend && npm install --prefix furniro-frontend"
   },
   "devDependencies": {
     "concurrently": "^9.0.1"

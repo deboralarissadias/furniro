@@ -1,0 +1,152 @@
+//SuperCategories
+[
+  {
+    "name": "Dining Room",
+    "image_link": "https://i.postimg.cc/XNcsnjHC/jantar.png"
+  },
+  {
+    "name": "Living Room",
+    "image_link": "https://i.postimg.cc/Xq3x9mJq/sala.png"
+  },
+  {
+    "name": "Bedroom",
+    "image_link": "https://i.postimg.cc/MTJY8N15/quarto.png"
+  }
+]
+
+
+//Subcategories
+
+[
+  {
+    "name": "Mesas",
+    "image_link": "https://i.postimg.cc/Qtc09hjv/mesa.png"
+  },
+  {
+    "name": "Cadeiras",
+    "image_link": "link_to_chair_image"
+  },
+  {
+    "name": "Sofá",
+    "image_link": "https://i.postimg.cc/KYM5wx34/sofas.png"
+  },
+  {
+    "name": "Mesas de café",
+    "image_link": "https://i.postimg.cc/Qtc09hjv/mesa.png"
+  },
+  {
+    "name": "Camas",
+    "image_link": "https://i.postimg.cc/DyvBZ9HY/sofa-grande2.png"
+  }
+]
+
+
+//produtos
+[
+  {
+    "name": "Syltherine",
+    "sku": "SYL123",
+    "category_id": 1,
+    "description": "Stylish cafe chair",
+    "large_description": "A stylish cafe chair perfect for dining or lounging",
+    "price": 2500000,
+    "discount_price": 3500000,
+    "discount_percent": 30,
+    "is_new": false,
+    "image_link": "https://i.postimg.cc/htC1bHbg/mesa.png",
+    "other_images_link": []
+  },
+  {
+    "name": "Leviosa",
+    "sku": "LEV123",
+    "category_id": 1,
+    "description": "Stylish cafe chair",
+    "large_description": "Simple and comfortable cafe chair",
+    "price": 2500000,
+    "discount_price": null,
+    "discount_percent": null,
+    "is_new": false,
+    "image_link": "https://i.postimg.cc/vTzV8V0M/cadeira.png",
+    "other_images_link": []
+  },
+  {
+    "name": "Lolito",
+    "sku": "LOL123",
+    "category_id": 2,
+    "description": "Luxury big sofa",
+    "large_description": "A spacious and luxurious sofa perfect for large living rooms",
+    "price": 7000000,
+    "discount_price": 14000000,
+    "discount_percent": 50,
+    "is_new": false,
+    "image_link": "https://i.postimg.cc/pXCfRgS8/sofa-grande.png",
+    "other_images_link": ["link_to_other_image1", "link_to_other_image2"],
+  },
+  {
+    "name": "Respira",
+    "sku": "RES123",
+    "category_id": 2,
+    "description": "Outdoor bar table and stool",
+    "large_description": "Stylish and durable bar table set for outdoor use",
+    "price": 500000,
+    "discount_price": null,
+    "discount_percent": null,
+    "is_new": true,
+    "image_link": "https://i.postimg.cc/5yqwHGNh/sofa-sala.png",
+    "other_images_link": []
+  },
+  {
+    "name": "Grifo",
+    "sku": "GRF789",
+    "category_id": 2,
+    "description": "Night lamp",
+    "large_description": "A sleek and modern armchair that adds style and comfort to any living room",
+    "price": 1500000,
+    "discount_price": null,
+    "discount_percent": null,
+    "is_new": false,
+    "image_link": "https://i.postimg.cc/qq0KdLXj/abajur.png",
+    "other_images_link": []
+  },
+  {
+    "name": "Muggo",
+    "sku": "MUG456",
+    "category_id": 2,
+    "description": "Small mug",
+    "large_description": "A modern sofa with a minimalist design, perfect for contemporary living rooms",
+    "price": 150000,
+    "discount_price": null,
+    "discount_percent": null,
+    "is_new": true,
+    "image_link": "https://i.postimg.cc/qv78R1fF/sofa.png",
+    "other_images_link": []
+  },
+  {
+    "name": "Pingky",
+    "sku": "PNG123",
+    "category_id": 2,
+    "description": "Cute bed set",
+    "large_description": "A comfortable and stylish lounge chair perfect for relaxing in your living room",
+    "price": 7000000,
+    "discount_price": 14000000,
+    "discount_percent": 50,
+    "is_new": false,
+    "image_link": "https://i.postimg.cc/3rgjbyCt/sofa-pequeno.png",
+    "other_images_link": []
+  },
+  {
+    "name": "Potty",
+    "sku": "PTY987",
+    "category_id": 1,
+    "description": "Minimalist flower pot",
+    "large_description": "A complete dining set featuring a modern design and durable materials for your dining room",
+    "price": 500000,
+    "discount_price": null,
+    "discount_percent": null,
+    "is_new": true,
+    "image_link": "https://i.postimg.cc/28rdpz0r/sofa-grande2.png",
+    "other_images_link": []
+  }
+]
+
+
