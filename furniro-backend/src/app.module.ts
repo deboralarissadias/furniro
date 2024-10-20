@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductModule } from './product/product.module'; // Importe o módulo de produtos
+import { CategoryModule } from './category/category.module';
 
 @Module({
   imports: [
@@ -8,13 +9,14 @@ import { ProductModule } from './product/product.module'; // Importe o módulo d
       type: 'postgres',
       host: 'localhost',
       port: 5432,
-      username: 'yourUsername',
-      password: 'yourPassword',
-      database: 'yourDatabase',
+      username: 'postgres',
+      password: 'root',
+      database: 'furniro_db',
       entities: [__dirname + '/**/*.entity{.ts,.js}'], // Detecta automaticamente as entidades
       synchronize: true,
     }),
-    ProductModule, // Adicione o módulo de produtos
+    CategoryModule,
+    ProductModule,
   ],
 })
 export class AppModule {}

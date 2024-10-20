@@ -23,6 +23,19 @@ export class ProductService {
   }
 
   async remove(id: number): Promise<void> {
+    console.log(`Removendo produto com ID: ${id}`);
     await this.productRepository.delete(id);
+    console.log(`Produto com ID: ${id} removido com sucesso`);
   }
+
+  async clearProducts(): Promise<void> {
+    console.log("Limpando produtos e reiniciando ID...");
+    // Limpa todos os produtos
+    await this.productRepository.clear();
+  
+    // Reinicia o contador de IDs (ajuste o nome da tabela e da sequência conforme necessário)
+    await this.productRepository.query('ALTER SEQUENCE product_id_seq RESTART WITH 1');
+    console.log("Limpeza e reinício concluídos");
+  }
+  
 }

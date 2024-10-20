@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Param, Body, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Param, Body, Delete, HttpCode } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { Product } from './product.entity';
 
@@ -21,8 +21,18 @@ export class ProductController {
     return this.productService.create(product);
   }
 
+  @HttpCode(204) // Código de status HTTP 204 No Content
+  @Delete('clear') // Define a rota como '/products/clear'
+  async clear(): Promise<void> {
+    console.log("Chamada para limpar produtos recebida");
+    await this.productService.clearProducts();
+    console.log("Produtos limpos com sucesso");
+  }
+
   @Delete(':id')
   remove(@Param('id') id: string): Promise<void> {
+    console.log("Chamada para remover um produto recebida");
     return this.productService.remove(+id);
   }
+
 }
