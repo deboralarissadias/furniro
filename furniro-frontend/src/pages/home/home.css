@@ -72,3 +72,20 @@
 .browse-item img {
     border-radius: 10px;
 }
+
+.home-products {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+.home-products-text {
+    font-family: var(--font-family-bold);
+    font-size: 32px;
+    color: #333333;
+}

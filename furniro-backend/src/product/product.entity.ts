@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { Category } from '../category/category.entity';
 
 @Entity('product')
@@ -12,8 +12,14 @@ export class Product {
   @Column({ length: 10 })
   sku: string;
 
+  // Define a relação ManyToOne com a entidade Category
   @ManyToOne(() => Category, category => category.products)
+  @JoinColumn({ name: 'category_id' })  // Especifica o nome da coluna que vai armazenar o ID
   category: Category;
+
+  // Explicita a coluna category_id para exibir o ID no JSON
+  @Column()
+  category_id: number;
 
   @Column({ length: 250 })
   description: string;

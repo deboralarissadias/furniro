@@ -36,4 +36,14 @@ export class CategoryService {
   async remove(id: number): Promise<void> {
     await this.categoryRepository.delete(id);
   }
+
+  async clearCategories(): Promise<void> {
+    console.log("Limpando categorias e reiniciando ID...");
+    // Limpa todas as categorias
+    await this.categoryRepository.clear();
+
+    // Reinicia o contador de IDs (ajuste o nome da tabela e da sequência conforme necessário)
+    await this.categoryRepository.query('ALTER SEQUENCE category_id_seq RESTART WITH 1');
+    console.log("Limpeza e reinício concluídos para categorias");
+  }
 }

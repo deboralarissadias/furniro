@@ -1,0 +1,47 @@
+.breadcrumb {
+    margin-top: 10px;
+    color: black;
+    font-size: 16px;
+  }
+  
+  .breadcrumb-link {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .breadcrumb-link:hover {
+    text-decoration: underline;
+  }
+  
+  .breadcrumb-current {
+    color: gray;
+  }
+  
+  .breadcrumb-divider {
+    margin: 0 5px;
+    color: black;
+  }
+  
+  /* Estilos para single product */
+  .breadcrumb-single {
+    display: flex;
+    align-items: center;
+    color: #666;
+    font-size: 14px;
+    background-color: #faf5eb;
+    padding: 10px 20px;
+  }
+  
+  .breadcrumb-single .breadcrumb-link {
+    color: #888;
+  }
+  
+  .breadcrumb-single .breadcrumb-divider {
+    color: #bbb;
+  }
+  
+  .breadcrumb-single .breadcrumb-current {
+    font-weight: bold;
+    color: black;
+  }
+  

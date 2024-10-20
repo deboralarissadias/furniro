@@ -10,8 +10,11 @@ export class ProductService {
     private productRepository: Repository<Product>,
   ) {}
 
-  findAll(): Promise<Product[]> {
-    return this.productRepository.find();
+  async findAll(limit?: number): Promise<Product[]> {
+    if (limit) {
+      return this.productRepository.find({ take: limit }); // Usa o parâmetro 'take' para limitar os resultados
+    }
+    return this.productRepository.find(); // Retorna todos os produtos
   }
 
   findOne(id: number): Promise<Product> {

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Patch, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Patch, Delete, HttpCode } from '@nestjs/common';
 import { CategoryService } from './category.service';
 import { Category } from './category.entity';
 
@@ -31,6 +31,15 @@ export class CategoryController {
     @Body() updateData: Partial<Category>,
   ): Promise<Category> {
     return this.categoryService.update(id, updateData);
+  }
+
+  // Rota para limpar todas as categorias
+  @HttpCode(204) // Código de status HTTP 204 No Content
+  @Delete('clear') // Define a rota como '/categories/clear'
+  async clear(): Promise<void> {
+    console.log("Chamada para limpar categorias recebida");
+    await this.categoryService.clearCategories();
+    console.log("Categorias limpas com sucesso");
   }
 
   // Rota para deletar uma categoria por ID

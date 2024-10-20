@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Param, Body, Delete, HttpCode } from '@nestjs/common';
+import { Controller, Get, Post, Param, Body, Delete, HttpCode, Query } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { Product } from './product.entity';
 
@@ -7,8 +7,9 @@ export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
   @Get()
-  findAll(): Promise<Product[]> {
-    return this.productService.findAll();
+  findAll(@Query('limit') limit?: string): Promise<Product[]> {
+    const limitNumber = limit ? parseInt(limit) : undefined; // Converte o limite para um número, se fornecido
+    return this.productService.findAll(limitNumber);
   }
 
   @Get(':id')

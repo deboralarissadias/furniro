@@ -1,0 +1,10 @@
+{
+  "name": "furniro",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"npm start --prefix furniro-backend\" \"npm start --prefix furniro-frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
