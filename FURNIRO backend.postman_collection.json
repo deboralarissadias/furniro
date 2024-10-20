@@ -1,0 +1,309 @@
+{
+	"info": {
+		"_postman_id": "225aa7ae-6ca6-4103-a509-7a5c67c735ab",
+		"name": "FURNIRO backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39137694"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Products Limited",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/products?limit=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Products All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"name\": \"Syltherine\",\r\n    \"sku\": \"SYL123\",\r\n    \"category_id\": 1,\r\n    \"description\": \"Stylish cafe chair\",\r\n    \"large_description\": \"A stylish cafe chair perfect for dining or lounging\",\r\n    \"price\": 2500000,\r\n    \"discount_price\": 3500000,\r\n    \"discount_percent\": 30,\r\n    \"is_new\": false,\r\n    \"image_link\": \"https://i.postimg.cc/htC1bHbg/mesa.png\",\r\n    \"other_images_link\": []\r\n  },\r\n  {\r\n    \"name\": \"Leviosa\",\r\n    \"sku\": \"LEV123\",\r\n    \"category_id\": 1,\r\n    \"description\": \"Stylish cafe chair\",\r\n    \"large_description\": \"Simple and comfortable cafe chair\",\r\n    \"price\": 2500000,\r\n    \"discount_price\": null,\r\n    \"discount_percent\": null,\r\n    \"is_new\": false,\r\n    \"image_link\": \"https://i.postimg.cc/vTzV8V0M/cadeira.png\",\r\n    \"other_images_link\": []\r\n  },\r\n  {\r\n    \"name\": \"Lolito\",\r\n    \"sku\": \"LOL123\",\r\n    \"category_id\": 2,\r\n    \"description\": \"Luxury big sofa\",\r\n    \"large_description\": \"A spacious and luxurious sofa perfect for large living rooms\",\r\n    \"price\": 7000000,\r\n    \"discount_price\": 14000000,\r\n    \"discount_percent\": 50,\r\n    \"is_new\": false,\r\n    \"image_link\": \"https://i.postimg.cc/pXCfRgS8/sofa-grande.png\",\r\n    \"other_images_link\": []\r\n  },\r\n  {\r\n    \"name\": \"Respira\",\r\n    \"sku\": \"RES123\",\r\n    \"category_id\": 2,\r\n    \"description\": \"Outdoor bar table and stool\",\r\n    \"large_description\": \"Stylish and durable bar table set for outdoor use\",\r\n    \"price\": 500000,\r\n    \"discount_price\": null,\r\n    \"discount_percent\": null,\r\n    \"is_new\": true,\r\n    \"image_link\": \"https://i.postimg.cc/5yqwHGNh/sofa-sala.png\",\r\n    \"other_images_link\": []\r\n  },\r\n  {\r\n    \"name\": \"Grifo\",\r\n    \"sku\": \"GRF789\",\r\n    \"category_id\": 2,\r\n    \"description\": \"Night lamp\",\r\n    \"large_description\": \"A sleek and modern armchair that adds style and comfort to any living room\",\r\n    \"price\": 1500000,\r\n    \"discount_price\": null,\r\n    \"discount_percent\": null,\r\n    \"is_new\": false,\r\n    \"image_link\": \"https://i.postimg.cc/qq0KdLXj/abajur.png\",\r\n    \"other_images_link\": []\r\n  },\r\n  {\r\n    \"name\": \"Muggo\",\r\n    \"sku\": \"MUG456\",\r\n    \"category_id\": 2,\r\n    \"description\": \"Small mug\",\r\n    \"large_description\": \"A modern sofa with a minimalist design, perfect for contemporary living rooms\",\r\n    \"price\": 150000,\r\n    \"discount_price\": null,\r\n    \"discount_percent\": null,\r\n    \"is_new\": true,\r\n    \"image_link\": \"https://i.postimg.cc/qv78R1fF/sofa.png\",\r\n    \"other_images_link\": []\r\n  },\r\n  {\r\n    \"name\": \"Pingky\",\r\n    \"sku\": \"PNG123\",\r\n    \"category_id\": 2,\r\n    \"description\": \"Cute bed set\",\r\n    \"large_description\": \"A comfortable and stylish lounge chair perfect for relaxing in your living room\",\r\n    \"price\": 7000000,\r\n    \"discount_price\": 14000000,\r\n    \"discount_percent\": 50,\r\n    \"is_new\": false,\r\n    \"image_link\": \"https://i.postimg.cc/3rgjbyCt/sofa-pequeno.png\",\r\n    \"other_images_link\": []\r\n  },\r\n  {\r\n    \"name\": \"Potty\",\r\n    \"sku\": \"PTY987\",\r\n    \"category_id\": 1,\r\n    \"description\": \"Minimalist flower pot\",\r\n    \"large_description\": \"A complete dining set featuring a modern design and durable materials for your dining room\",\r\n    \"price\": 500000,\r\n    \"discount_price\": null,\r\n    \"discount_percent\": null,\r\n    \"is_new\": true,\r\n    \"image_link\": \"https://i.postimg.cc/28rdpz0r/sofa-grande2.png\",\r\n    \"other_images_link\": []\r\n  }\r\n]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/products/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/products/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Products Clear",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/products/clear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"products",
+								"clear"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/categories/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"categories",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"name\": \"Dining Room\",\r\n    \"image_link\": \"https://i.postimg.cc/XNcsnjHC/jantar.png\"\r\n  },\r\n  {\r\n    \"name\": \"Living Room\",\r\n    \"image_link\": \"https://i.postimg.cc/Xq3x9mJq/sala.png\"\r\n  },\r\n  {\r\n    \"name\": \"Bedroom\",\r\n    \"image_link\": \"https://i.postimg.cc/MTJY8N15/quarto.png\"\r\n  }\r\n]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/categories/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"categories",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/categories/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"categories",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorys Clear",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/categories/clear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"categories",
+								"clear"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

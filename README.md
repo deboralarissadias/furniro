@@ -1,10 +1,10 @@
 # furniro
 
-Configurar o postgresql na sua máquina e criar o database `furniro` com o seguinte comando:
+Configurar o postgresql na sua máquina e criar o database `furniro_db` com o seguinte comando:
 
 ```bash
 psql -U postgres
-CREATE DATABASE furniro;
+CREATE DATABASE furniro_db`;
 ```
 
 ## Instalação

@@ -1,6 +1,6 @@
 import React from 'react';
 import './products.css';
-import Product from '../Product/product';
+import Product from '../product/product';
 import { ProductProps } from '../../interfaces/products';
 
 interface Props {
