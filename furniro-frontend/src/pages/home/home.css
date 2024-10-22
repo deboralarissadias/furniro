@@ -88,3 +88,19 @@
     font-size: 32px;
     color: #333333;
 }
+
+.home-products-button {
+    width: 245px;
+    height: 48px;
+    color: #B88E2F;
+    font-family: var(--font-family-semibold);
+    font-size: 16px;
+    background-color: #FFFFFF;
+    margin-bottom: 68px;
+    border: 1px solid #B88E2F;
+}
+
+.home-products-button:hover {
+    cursor: pointer;
+    background-color: #FFF3E3;
+}
