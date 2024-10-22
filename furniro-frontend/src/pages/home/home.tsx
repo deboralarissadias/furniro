@@ -74,7 +74,7 @@ function Home() {
 
       <div className='home-products'>
         <h1 className='home-products-text'>Our Products</h1>
-        <ProductsContainer products={products} />
+        <ProductsContainer products={products} pageType="home" />
         <button className='home-products-button' onClick={handleShowMore}>Show More</button>
       </div>
 

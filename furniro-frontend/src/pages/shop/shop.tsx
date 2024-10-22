@@ -7,6 +7,7 @@ import { productsMock } from '../../components/products/mockData';
 import { GET_PRODUCTS } from '../../config/endpoints';
 import { ProductProps } from '../../interfaces/products';
 import Breadcrumb from '../../components/breadcrumb/breadcrumb';
+import ProductsContainer from '../../components/products/products';
 
 
 const Shop: React.FC = () => {
@@ -34,7 +35,7 @@ const Shop: React.FC = () => {
   }, []); // O array vazio [] garante que o efeito será executado apenas uma vez ao montar o componente
 
   const breadcrumbPaths = [
-    { name: 'Home', path: '' },
+    { name: 'Home', path: '/' },
     { name: 'Shop', path: '/shop' },
   ];
 
@@ -46,6 +47,22 @@ const Shop: React.FC = () => {
           <h1 banner-shop-text>Shop</h1>
           <Breadcrumb paths={breadcrumbPaths} isSingleProduct={false} />
       </div>
+
+
+
+
+
+
+      
+
+      {
+        loading ? (
+          <div>Loading...</div>
+        ) : (
+          <div className='shop-products'>
+            <ProductsContainer products={products} pageType="shop" />
+          </div>
+          )}
 
       <PreFooter />
       <Footer />
