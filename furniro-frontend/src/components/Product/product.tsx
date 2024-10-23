@@ -30,6 +30,10 @@ const Product = ({product}: Props ) => {
     navigate(`/product/${product.id}/${product.sku}/${convertToSlug(product.name)}`);
   };
 
+  const formatPrice = (price: number) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  };
+
   return (
     <div className="product-card">
       <div className="product-image">
@@ -62,10 +66,10 @@ const Product = ({product}: Props ) => {
         <h3>{product.name}</h3>
         <p className='product-description'>{product.description}</p>
         <p className='product-price'>
-          Rp {product.price.toLocaleString()}
+          Rp {formatPrice(product.price)}
           {product.discount_price && (
             <span className="discount-price">
-              Rp {product.discount_price.toLocaleString()}
+              Rp {formatPrice(product.discount_price)}
             </span>
           )}
         </p>

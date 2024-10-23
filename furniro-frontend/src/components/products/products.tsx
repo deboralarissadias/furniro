@@ -5,6 +5,7 @@ import { ProductProps } from '../../interfaces/products';
 
 interface Props {
   products: ProductProps[];
+  pageType: string;
 }
 
 const Products = ({products}: Props) => {
