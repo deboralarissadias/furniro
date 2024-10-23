@@ -24,7 +24,6 @@ function Home() {
       try {
         const response = await fetch(GET_PRODUCTS + "?limit=8"); // Substitua pela URL real do seu endpoint
         const data = await response.json(); // Supondo que a resposta esteja em formato JSON
-        console.log("Produtos recebidos:", data);
         setProducts(data); // Atualiza o estado com os produtos
         setLoading(false); // Define que o carregamento foi concluído
       } catch (error) {

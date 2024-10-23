@@ -10,12 +10,20 @@ export class ProductService {
     private productRepository: Repository<Product>,
   ) {}
 
-  async findAll(limit?: number): Promise<Product[]> {
+  async findAll(limit?: number, sort?: 'asc' | 'desc'): Promise<Product[]> {
+    const options: any = {};
+    
     if (limit) {
-      return this.productRepository.find({ take: limit }); // Usa o parâmetro 'take' para limitar os resultados
+      options.take = limit; // Limita os resultados
     }
-    return this.productRepository.find(); // Retorna todos os produtos
+  
+    if (sort) {
+      options.order = { price: sort }; // Adiciona a ordenação baseada no preço
+    }
+  
+    return this.productRepository.find(options); // Executa a query com as opções
   }
+  
 
   findOne(id: number): Promise<Product> {
     return this.productRepository.findOneBy({ id });

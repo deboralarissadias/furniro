@@ -7,10 +7,14 @@ export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
   @Get()
-  findAll(@Query('limit') limit?: string): Promise<Product[]> {
-    const limitNumber = limit ? parseInt(limit) : undefined; // Converte o limite para um número, se fornecido
-    return this.productService.findAll(limitNumber);
+  findAll(
+    @Query('limit') limit?: string, 
+    @Query('sort') sort?: 'asc' | 'desc'
+  ): Promise<Product[]> {
+    const limitNumber = limit ? parseInt(limit) : undefined; // Converte o limite para número, se fornecido
+    return this.productService.findAll(limitNumber, sort);
   }
+
 
   @Get(':id')
   findOne(@Param('id') id: string): Promise<Product> {
