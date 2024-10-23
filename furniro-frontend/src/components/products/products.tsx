@@ -12,7 +12,7 @@ const Products = ({products}: Props) => {
   return (
     <div className="products-container">
       {products.map((product: any) => (
-        <Product key={product.sku} product={product} />
+        <Product key={product.id} product={product} />
       ))}
     </div>
   );
