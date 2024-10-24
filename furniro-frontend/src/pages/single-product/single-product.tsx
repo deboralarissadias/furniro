@@ -62,6 +62,29 @@ const SingleProduct: React.FC = () => {
       <Header />
       <Breadcrumb paths={breadcrumbPaths} isSingleProduct={true} />
 
+      <div>
+        <div>
+          <img src={product.image_link} alt={product.name} className='main-img'/>
+          <h1 className='product-name'>{product.name}</h1>
+          <div className="product-price">{product.price}</div>
+          <div className="product-rating">Rating: {product.rating}</div>
+          <div className="product-description">{product.description}</div>
+          <div>Size</div>
+          <div>Color</div>
+          <select>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <button className="add-to-cart-btn">Add to Cart</button>
+          <button className="compare-btn">+ Compare</button>
+        </div>
+
+
+      </div>
+      
       <div className='description'>
         <Tabs />
       </div>
