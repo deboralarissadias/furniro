@@ -10,19 +10,48 @@ export class ProductService {
     private productRepository: Repository<Product>,
   ) {}
 
-  async findAll(limit?: number, sort?: 'asc' | 'desc'): Promise<Product[]> {
+  async findAll(limit?: number, sort?: 'asc' | 'desc', page?: number, categoryId?: number): Promise<{ products: Product[], currentPage: number, pageSize: number, totalProducts: number, totalPages: number }> {
     const options: any = {};
-    
-    if (limit) {
-      options.take = limit; // Limita os resultados
-    }
   
+    // Configura a paginação
+    const pageSize = limit || 10; // Número de itens por página (limit)
+    const currentPage = page || 1; // Página atual
+  
+    options.take = pageSize; // Número de itens por página
+    options.skip = (currentPage - 1) * pageSize; // Pula os itens com base na página atual
+  
+    // Adiciona a ordenação, se fornecida
     if (sort) {
-      options.order = { price: sort }; // Adiciona a ordenação baseada no preço
+      options.order = { price: sort };
     }
   
-    return this.productRepository.find(options); // Executa a query com as opções
+    // Adiciona o filtro de categoria, se fornecido
+    if (categoryId) {
+      options.where = { category_id: categoryId };
+    }
+  
+    // Busca o total de produtos, sem considerar o limite e a paginação
+    const totalProducts = await this.productRepository.count(options.where);
+  
+    // Calcula o número total de páginas
+    const totalPages = Math.ceil(totalProducts / pageSize);
+  
+    // Busca os produtos com as opções configuradas
+    const products = await this.productRepository.find(options);
+  
+    // Retorna os produtos e os dados de paginação
+    return {
+      products,
+      currentPage,
+      pageSize,
+      totalProducts,
+      totalPages
+    };
   }
+  
+  
+  
+  
   
 
   findOne(id: number): Promise<Product> {

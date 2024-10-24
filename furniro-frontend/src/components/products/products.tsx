@@ -6,11 +6,12 @@ import { ProductProps } from '../../interfaces/products';
 interface Props {
   products: ProductProps[];
   pageType: string;
+  viewMode?: string;
 }
 
-const Products = ({products}: Props) => {
+const Products = ({products, pageType, viewMode}: Props) => {
   return (
-    <div className="products-container">
+    <div className={`products-container ${viewMode}`}>
       {products.map((product: any) => (
         <Product key={product.id} product={product} />
       ))}

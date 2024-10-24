@@ -8,12 +8,21 @@ export class ProductController {
 
   @Get()
   findAll(
-    @Query('limit') limit?: string, 
-    @Query('sort') sort?: 'asc' | 'desc'
-  ): Promise<Product[]> {
-    const limitNumber = limit ? parseInt(limit) : undefined; // Converte o limite para número, se fornecido
-    return this.productService.findAll(limitNumber, sort);
+    @Query('limit') limit?: string,
+    @Query('sort') sort?: 'asc' | 'desc',
+    @Query('page') page?: string,
+    @Query('categoryId') categoryId?: string
+  ): Promise<{ products: Product[], currentPage: number, pageSize: number, totalProducts: number, totalPages: number }> {
+    const limitNumber = limit ? parseInt(limit) : undefined;
+    const pageNumber = page ? parseInt(page) : undefined;
+    const categoryIdNumber = categoryId ? parseInt(categoryId) : undefined;
+    
+    return this.productService.findAll(limitNumber, sort, pageNumber, categoryIdNumber);
   }
+
+
+
+
 
 
   @Get(':id')
