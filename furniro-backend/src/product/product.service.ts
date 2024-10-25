@@ -50,10 +50,6 @@ export class ProductService {
   }
   
   
-  
-  
-  
-
   findOne(id: number): Promise<Product> {
     return this.productRepository.findOneBy({ id });
   }

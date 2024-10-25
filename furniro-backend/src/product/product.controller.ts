@@ -20,11 +20,6 @@ export class ProductController {
     return this.productService.findAll(limitNumber, sort, pageNumber, categoryIdNumber);
   }
 
-
-
-
-
-
   @Get(':id')
   findOne(@Param('id') id: string): Promise<Product> {
     return this.productService.findOne(+id);

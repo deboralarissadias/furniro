@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "../../components/header/header";
 import PreFooter from "../../components/preFooter/preFooter";
 import Footer from "../../components/footer/footer";
@@ -11,8 +11,14 @@ import ProductsContainer from "../../components/products/products";
 import iconFilter from "../../assets/icons/icon-filter.svg";
 import iconGrid from "../../assets/icons/icon-grid.svg";
 import iconList from "../../assets/icons/icon-list.svg";
+import { useLocation } from "react-router-dom";
+import Spinner from "../../components/spinner/spinner";
 
 const Shop: React.FC = () => {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const categoryParams = queryParams.get("category");
+
   const [products, setProducts] = useState<ProductProps[]>([]); // Estado para armazenar os produtos
   const [dataProducts, setDataProducts] = useState<any>({}); // Estado para armazenar os produtos
   const [loading, setLoading] = useState(true); // Estado para controle de carregamento
@@ -20,16 +26,19 @@ const Shop: React.FC = () => {
   const [sort, setSort] = useState("default");
   const [listLength, setListLength] = useState(0);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [categoryFilter, setCategoryFilter] = useState<string>("");
+  const [categoryFilter, setCategoryFilter] = useState<string>(
+    categoryParams || ""
+  );
   const [viewMode, setViewMode] = useState("grid");
   const [currentPage, setCurrentPage] = useState(1);
-  const start = (currentPage - 1) * limit + 1;
-  const end = Math.min(currentPage * limit, listLength);
+  const [start, setStart] = useState(1);
+  const [end, setEnd] = useState(Math.min(limit, listLength));
+  const dropdownRef: any = useRef(null);
 
   // Fazendo a requisição para o endpoint
   const fetchProducts = async (
-    page: number,
-    limit?: number,
+    page: number = 1,
+    limit: number = 16,
     sort?: string,
     category?: string
   ) => {
@@ -52,17 +61,45 @@ const Shop: React.FC = () => {
       const productsData = await response.json(); // Supondo que a resposta esteja em formato JSON
       setProducts(productsData.products);
       setDataProducts(productsData);
-      setListLength(productsData.totalProducts);
+
+      if (category) {
+        const filteredProductsLength = productsData.products.length;
+        setListLength(filteredProductsLength);
+        if (filteredProductsLength === 0) {
+          setStart(0);
+          setEnd(0);
+        } else {
+          // Atualizando o "start" e "end" com base nos novos produtos filtrados
+          const newStart = (page - 1) * limit + 1;
+          const newEnd = Math.min(page * limit, filteredProductsLength);
+          setStart(newStart);
+          setEnd(newEnd);
+        }
+      } else {
+        setListLength(productsData.totalProducts); // Atualiza o número total de produtos com base no filtro
+        // Atualizando o "start" e "end" com base nos novos produtos
+        const newStart = (page - 1) * limit + 1;
+        const newEnd = Math.min(page * limit, productsData.totalProducts);
+        setStart(newStart);
+        setEnd(newEnd);
+      }
+
       setLoading(false); // Define que o carregamento foi concluído
+      
     } catch (error) {
-      setProducts(productsMock);
+      setProducts(productsMock); // Fallback para mock de produtos
       console.error("Erro ao buscar produtos:", error);
       setLoading(false); // Em caso de erro, para o carregamento
     }
   };
 
   useEffect(() => {
-    fetchProducts(currentPage, limit); // Chama a função ao montar o componente
+    setLoading(true); // Garante que o loading seja exibido ao mudar o filtro
+    if (categoryParams) {
+      fetchProducts(currentPage, limit, undefined, categoryParams);
+    } else {
+      fetchProducts(currentPage, limit);
+    }
   }, []); // O array vazio [] garante que o efeito será executado apenas uma vez ao montar o componente
 
   const breadcrumbPaths = [
@@ -90,15 +127,19 @@ const Shop: React.FC = () => {
   // Função para aplicar filtro de categoria
   const handleCategoryFilter = (category: string) => {
     setCategoryFilter(category);
-    if (category === "clean") {
-      setCurrentPage(1);
-      fetchProducts(1, 16);
-    } else {
+    setCurrentPage(1); // Resetando para a primeira página quando um novo filtro é aplicado
+    fetchProducts(1, 16); // Sempre inicia com a primeira página e limite padrão
+
+    // Lógica de fetch de produtos com base na categoria
+    if (category !== "clean") {
       if (sort === "default") {
         fetchProducts(currentPage, limit, "", category);
       } else {
         fetchProducts(currentPage, limit, sort, category);
       }
+    } else {
+      // Limpa os filtros e faz a requisição padrão
+      fetchProducts(currentPage, limit);
     }
     setIsFilterOpen(false);
   };
@@ -122,6 +163,21 @@ const Shop: React.FC = () => {
     }
   };
 
+  // Função para lidar com cliques fora do dropdown
+  const handleClickOutside = (event: any) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsFilterOpen(false); // Fecha o dropdown se o clique for fora
+    }
+  };
+
+  // Hook para adicionar/remover o listener de cliques fora
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div>
       <Header />
@@ -138,16 +194,37 @@ const Shop: React.FC = () => {
               <img src={iconFilter} alt="icon filter" width={25} height={25} />
               <span className="filter-text">Filter</span>
               {isFilterOpen && (
-                <div className="filter-dropdown">
-                  <button onClick={() => handleCategoryFilter("1")}>
+                <div className="filter-dropdown" ref={dropdownRef}>
+                  <label>
+                    <input
+                      type="radio"
+                      name="categoryFilter"
+                      value="1"
+                      checked={categoryFilter === "1"}
+                      onChange={() => handleCategoryFilter("1")}
+                    />
                     Dining Room
-                  </button>
-                  <button onClick={() => handleCategoryFilter("2")}>
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="categoryFilter"
+                      value="2"
+                      checked={categoryFilter === "2"}
+                      onChange={() => handleCategoryFilter("2")}
+                    />
                     Living Room
-                  </button>
-                  <button onClick={() => handleCategoryFilter("3")}>
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="categoryFilter"
+                      value="3"
+                      checked={categoryFilter === "3"}
+                      onChange={() => handleCategoryFilter("3")}
+                    />
                     Bedroom
-                  </button>
+                  </label>
                   <button onClick={() => handleCategoryFilter("clean")}>
                     Limpar Filtros
                   </button>
@@ -185,6 +262,7 @@ const Shop: React.FC = () => {
                 type="number"
                 value={limit}
                 onChange={(e) => handleLimitChange(e)}
+                min={16}
               />
             </div>
             <div className="filter-sort">
@@ -208,7 +286,7 @@ const Shop: React.FC = () => {
       </div>
 
       {loading ? (
-        <div>Loading...</div>
+        <Spinner />
       ) : (
         <div className="shop-products">
           <ProductsContainer
@@ -217,27 +295,36 @@ const Shop: React.FC = () => {
             viewMode={viewMode}
           />
 
-          <div className="pagination">
-            {currentPage > 1 && (
-              <button onClick={() => handlePageChange(currentPage - 1)}>
-                Back
-              </button>
-            )}
-            {[...Array(dataProducts.totalPages)].map((_, index) => (
-              <button
-                key={index}
-                onClick={() => handlePageChange(index + 1)}
-                className={currentPage === index + 1 ? "active" : ""}
-              >
-                {index + 1}
-              </button>
-            ))}
-            {currentPage < dataProducts.totalPages && (
-              <button onClick={() => handlePageChange(currentPage + 1)}>
-                Next
-              </button>
-            )}
-          </div>
+          {/* Exibe a paginação somente se houver pelo menos 16 produtos */}
+          {listLength >= 16 && (
+            <div className="pagination">
+              {currentPage > 1 && (
+                <button
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  className="prev"
+                >
+                  Back
+                </button>
+              )}
+              {[...Array(dataProducts.totalPages)].map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => handlePageChange(index + 1)}
+                  className={currentPage === index + 1 ? "active" : ""}
+                >
+                  {index + 1}
+                </button>
+              ))}
+              {currentPage < dataProducts.totalPages && (
+                <button
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  className="next"
+                >
+                  Next
+                </button>
+              )}
+            </div>
+          )}
         </div>
       )}
 

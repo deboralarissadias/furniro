@@ -10,7 +10,7 @@ import ProductsContainer from "../../components/products/products";
 import { ProductProps } from "../../interfaces/products";
 import { GET_PRODUCTS } from "../../config/endpoints";
 import { productsMock } from "../../components/products/mockData";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
@@ -59,21 +59,21 @@ function Home() {
         <h1 className="browse-text">Browse The Range</h1>
         <div className="browse-items">
           <div className="browse-item">
-            <a href="#">
+            <Link to="/products?category=1">
               <img src={dining} alt="dining" />
-            </a>
+            </Link>
             <p>Dining</p>
           </div>
           <div className="browse-item">
-            <a href="#">
+            <Link to="/products?category=2">
               <img src={living} alt="living" />
-            </a>
+            </Link>
             <p>Living</p>
           </div>
           <div className="browse-item">
-            <a href="#">
+            <Link to="/products?category=3">
               <img src={bedroom} alt="bedroom" />
-            </a>
+            </Link>
             <p>Bedroom</p>
           </div>
         </div>

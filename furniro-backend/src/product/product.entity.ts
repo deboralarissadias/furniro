@@ -24,8 +24,9 @@ export class Product {
   @Column({ length: 250 })
   description: string;
 
-  @Column({ length: 500 })
-  large_description: string;
+  @Column({ type: 'text', nullable: true })
+  large_description: string | null;
+
 
   @Column('decimal')
   price: number;
