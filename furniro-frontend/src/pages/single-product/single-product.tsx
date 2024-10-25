@@ -9,6 +9,9 @@ import { GET_PRODUCT, GET_PRODUCTS } from "../../config/endpoints";
 import { productsMock } from "../../components/products/mockData";
 import "./single-product.css"
 import ProductsContainer from "../../components/products/products";
+import iconFacebook from "../../assets/icons/icon-facebook.svg";
+import iconLinkedin from "../../assets/icons/icon-linkedin.svg";
+import iconTwitter from "../../assets/icons/icon-twitter.svg";
 
 const SingleProduct: React.FC = () => {
   const navigate = useNavigate();
@@ -94,6 +97,10 @@ const SingleProduct: React.FC = () => {
     navigate("/products?categoryId=" + product.category_id);
   };
 
+  const formatPrice = (price: number) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  };
+
   return (
     <div>
       <Header />
@@ -118,10 +125,10 @@ const SingleProduct: React.FC = () => {
           </div>
         </div>
         <div className="product-info">
-          <h1 className="product-title">Asgaard Sofa</h1>
-          <p className="price">Rs. 2,500,000.00</p>
+          <h1 className="product-title">{product.name}</h1>
+          <p className="price">Rp.{product.price}</p>
           <div className="ratings">
-            <span>⭐⭐⭐⭐⭐</span> <span>(5 Customer Reviews)</span>
+            <span>⭐⭐⭐⭐⭐</span> | <span>5 Customer Reviews</span>
           </div>
           <p className="description">
             Setting the bar as one of the loudest speakers in its class, the
@@ -130,14 +137,14 @@ const SingleProduct: React.FC = () => {
           </p>
 
           <div className="product-options">
+              <label>Size</label>
             <div className="size-options">
-              <label>Size: </label>
               <button>L</button>
               <button>XL</button>
               <button>XS</button>
             </div>
             <div className="color-options">
-              <label>Color: </label>
+              <label>Color</label>
               <button className="color purple"></button>
               <button className="color black"></button>
               <button className="color brown"></button>
@@ -156,7 +163,7 @@ const SingleProduct: React.FC = () => {
 
           <div className="action-buttons">
             <button className="add-to-cart">Add to Cart</button>
-            <button className="compare">Compare</button>
+            <button className="compare">+ Compare</button>
           </div>
 
           <div className="product-meta">
@@ -168,13 +175,13 @@ const SingleProduct: React.FC = () => {
           <div className="share">
             <p>Share:</p>
             <a href="#">
-              <i className="fab fa-facebook"></i>
+              <i className="icon-facebook"><img src={iconFacebook}/></i>
             </a>
             <a href="#">
-              <i className="fab fa-twitter"></i>
+              <i className="icon-linkedin"><img src={iconLinkedin}/></i>
             </a>
             <a href="#">
-              <i className="fab fa-linkedin"></i>
+              <i className="icon-twitter"><img src={iconTwitter}/></i>
             </a>
           </div>
         </div>

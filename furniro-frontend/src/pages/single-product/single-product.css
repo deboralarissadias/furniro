@@ -13,7 +13,6 @@
     color: 000000;
     font-family: var(--font-family-main);
     font-size: 20px;
-
 }
 
 .product-details {
@@ -61,43 +60,72 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-left: 83px;
 }
 
 .product-details .product-title {
-    font-size: 24px;
-    font-weight: bold;
+    font-family: var(--font-family-main);
+    font-size: 42px;
+    color: #000000;
+    margin: 0;
 }
 
 .product-details .price {
-    font-size: 20px;
-    color: #333;
+    font-family: var(--font-family-medium);
+    font-size: 24px;
+    color: #9F9F9F;
+    margin: 0;
 }
 
 .product-details .ratings {
-    font-size: 16px;
+    display: flex;
+    font-family: var(--font-family-main);
+    font-size: 13px;
+    color: #9F9F9F;
+    gap: 15px;
 }
 
 .product-details .description {
-    font-size: 14px;
-    color: #666;
+    font-family: var(--font-family-main);
+    font-size: 13px;
+    color: #000000;
+    width: 424px;
+    height: 80px;
 }
 
 .product-details .product-options {
+    font-size: var(--font-family-main);
+    font-size: 14px;
+    color: #9F9F9F;
     display: flex;
     gap: 20px;
+    flex-direction: column;
+}
+
+.product-details .size-options button {
+    border-radius: 5px;
+}
+
+.product-details .product-options .size-options button:hover {
+    cursor: pointer;
+    background-color: #B88E2F;
+    color: white;
 }
 
 .product-details .size-options, .color-options {
     display: flex;
     gap: 10px;
     align-items: center;
+    font-size: var(--font-family-main);
+    font-size: 14px;
+    color: #9F9F9F;
 }
 
 .product-details .size-options button, .color-options button {
     padding: 5px 10px;
-    border: 1px solid #ccc;
+    border: 1px;
     cursor: pointer;
-    background: none;
+    background: #F9F1E7;
 }
 
 .product-details .color {
@@ -108,15 +136,15 @@
 }
 
 .product-details .color.purple {
-    background-color: #6A1B9A;
+    background-color: #816DFA;
 }
 
 .product-details .color.black {
-    background-color: #000;
+    background-color: #000000;
 }
 
 .product-details .color.brown {
-    background-color: #8B4513;
+    background-color: #B88E2F;
 }
 
 .product-details .quantity {
@@ -140,26 +168,31 @@
 }
 
 .product-details .add-to-cart, .product-details .compare {
+    width: 215px;
+    height: 64px;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
-    background-color: #f0c14b;
     font-size: 14px;
 }
 
 .product-details .add-to-cart {
-    background-color: #ff9900;
-    color: white;
+    font-family: var(--font-family-main);
+    font-size: 20px;
+    background-color: none;
+    color: #000000;
 }
 
 .product-details .compare {
-    background-color: #ccc;
-    color: #333;
+    font-family: var(--font-family-main);
+    font-size: 20px;
+    background-color: none;
+    color: #000000;
 }
 
 .product-details .product-meta {
     font-size: 12px;
-    color: #666;
+    color: #9F9F9F;
 }
 
 .product-details .share {

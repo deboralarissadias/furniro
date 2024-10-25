@@ -64,7 +64,12 @@ const Product = ({product}: Props ) => {
       </div>
       <div className="product-info">
         <h3>{product.name}</h3>
-        <p className='product-description'>{product.description}</p>
+        <p className='product-description'>
+          {product.description.length > 30 
+          ? `${product.description.slice(0, 30)}...`
+          : product.description}
+        </p>
+
         <p className='product-price'>
           Rp {formatPrice(product.price)}
           {product.discount_price && (
