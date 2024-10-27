@@ -12,7 +12,12 @@ import { GET_PRODUCTS } from "../../config/endpoints";
 import { productsMock } from "../../components/products/mockData";
 import { Link, useNavigate } from "react-router-dom";
 
-function Home() {
+const Home: React.FC = () => {
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  }
+  
   const navigate = useNavigate();
 
   const [products, setProducts] = useState<ProductProps[]>([]); // Estado para armazenar os produtos
@@ -36,6 +41,7 @@ function Home() {
     };
 
     fetchProducts(); // Chama a função ao montar o componente
+    scrollToTop();
   }, []); // O array vazio [] garante que o efeito será executado apenas uma vez ao montar o componente
 
   const handleShowMore = () => {

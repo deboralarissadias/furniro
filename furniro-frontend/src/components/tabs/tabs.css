@@ -3,8 +3,9 @@
 
 .tabs-container {
     width: 100%;
-    max-width: 600px;
+    max-width: 1026px;
     margin: 0 auto;
+    padding: 20px;
   }
   
   .tabs {
@@ -15,21 +16,30 @@
   
   .tabs button {
     padding: 10px 20px;
-    background-color: #f1f1f1;
+    background-color: transparent;
+    color: #9F9F9F;
     border: none;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 24px;
+    font-family: var(--font-family-main);
+    font-weight: 400;
+    line-height: 36px;
   }
   
   .tabs button.active {
-    background-color: #007bff;
-    color: white;
+    background-color: transparent;
+    color: #000000;
+    font-weight: 500;
   }
   
   .tab-content {
-    border: 1px solid #ddd;
     padding: 20px;
-    background-color: #fff;
+    color: #9F9F9F;
+    font-size: 16px;
+    font-family: var(--font-family-main);
+    line-height: 24px;
+    text-align: justify;
+    font-weight: 400;
   }
   
   .tab-pane h2 {

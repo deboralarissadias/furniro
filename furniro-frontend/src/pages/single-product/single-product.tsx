@@ -5,19 +5,26 @@ import Footer from "../../components/footer/footer";
 import Tabs from "../../components/tabs/tabs";
 import Breadcrumb from "../../components/breadcrumb/breadcrumb";
 import { ProductProps } from "../../interfaces/products";
-import { GET_PRODUCT, GET_PRODUCTS } from "../../config/endpoints";
+import { GET_CATEGORY, GET_PRODUCT, GET_PRODUCTS } from "../../config/endpoints";
 import { productsMock } from "../../components/products/mockData";
 import "./single-product.css"
 import ProductsContainer from "../../components/products/products";
 import iconFacebook from "../../assets/icons/icon-facebook.svg";
 import iconLinkedin from "../../assets/icons/icon-linkedin.svg";
 import iconTwitter from "../../assets/icons/icon-twitter.svg";
+import { CategoryProps } from "../../interfaces/category";
 
 const SingleProduct: React.FC = () => {
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  }
+
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
   const [product, setProduct] = useState<ProductProps | any>({});
+  const [category, setCategory] = useState<CategoryProps | any>({});
   const [products, setProducts] = useState<ProductProps[]>([]);
   const [loading, setLoading] = useState(true);
   // Estado para armazenar a imagem selecionada
@@ -61,9 +68,27 @@ const SingleProduct: React.FC = () => {
         setLoading(false); 
       }
     };
+
+    const fetchCategory = async () => {
+      try {
+        const categoryId = product.category_id || 1;
+        const url = GET_CATEGORY.replace("{id}", `${categoryId}`);
+        const response = await fetch(url); 
+        const dataCategory = await response.json();
+        console.log(dataCategory);
+        setCategory(dataCategory);
+        setLoading(false);
+      } catch (error) {
+        console.error("Erro ao buscar categoria:", error);
+        setLoading(false); 
+      }
+    };
     
+    // Chama a função ao montar o componente
     fetchProducts(); 
-    fetchProduct(); // Chama a função ao montar o componente
+    fetchProduct(); 
+    fetchCategory();
+    scrollToTop();
   }, []); // O array vazio [] garante que o efeito será executado apenas uma vez ao montar o componente
 
   function convertToSlug(name: string) {
@@ -100,9 +125,6 @@ const SingleProduct: React.FC = () => {
   const formatPrice = (price: number) => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
-
-
-
 
   const generateStarsRating = (rating: number, showRating: boolean, totalReviews: number) => {
     const stars = [];
@@ -141,9 +163,6 @@ const SingleProduct: React.FC = () => {
     window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}`, "_blank");
   };
 
-  console.log("product", product);
-
-
   return (
     <div>
       <Header />
@@ -159,7 +178,7 @@ const SingleProduct: React.FC = () => {
             />
             <div className="thumbnail-images">
               {product?.other_images_link?.map((image: any) => (
-                <img 
+                <img
                   src={image}
                   alt={product.name}
                   key={image}
@@ -173,12 +192,15 @@ const SingleProduct: React.FC = () => {
             <p className="price">Rp. {formatPrice(product.price || 0)}</p>
             <div className="ratings">
               <div className="stars-rating">
-                {product.reviews && generateStarsRating(product.reviews.rating || 0, true, product.reviews.total_reviews || 0)}
+                {product.reviews &&
+                  generateStarsRating(
+                    product.reviews.rating || 0,
+                    true,
+                    product.reviews.total_reviews || 0
+                  )}
               </div>
             </div>
-            <p className="description">
-              {product.description || ""}
-            </p>
+            <p className="description">{product.description || ""}</p>
 
             <div className="product-options">
               <span>Size</span>
@@ -186,24 +208,30 @@ const SingleProduct: React.FC = () => {
                 {product.variants?.size?.map((size: any) => (
                   <button
                     key={size}
-                    className={selectedSize === size ? "size-btn active" : "size-btn"}
+                    className={
+                      selectedSize === size ? "size-btn active" : "size-btn"
+                    }
                     onClick={() => setSelectedSize(size)}
                   >
                     {size}
                   </button>
                 ))}
               </div>
-              <div className="color-options">
+              <div className="color-container">
                 <span>Color</span>
                 <div className="color-options">
                   {product.variants?.color?.map((color: any) => (
                     <button
                       key={color}
-                      className={selectedColor === color ? "color active" : "color"}
+                      className={
+                        selectedColor === color ? "color active" : "color"
+                      }
                       onClick={() => setSelectedColor(color)}
-                      style={{ backgroundColor: color, borderColor: selectedColor === color ? "#000" : color }}
-                    >
-                    </button>
+                      style={{
+                        backgroundColor: color,
+                        borderColor: selectedColor === color ? "#000" : color,
+                      }}
+                    ></button>
                   ))}
                 </div>
               </div>
@@ -211,10 +239,12 @@ const SingleProduct: React.FC = () => {
 
             <div className="add-to-cart-container">
               <div className="quantity">
-                <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
-                <input 
-                  type="number" 
-                  value={quantity} 
+                <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>
+                  -
+                </button>
+                <input
+                  type="number"
+                  value={quantity}
                   onChange={(e) => setQuantity(Number(e.target.value))} // Atualiza o estado com o novo valor
                 />
                 <button onClick={() => setQuantity(quantity + 1)}>+</button>
@@ -226,29 +256,64 @@ const SingleProduct: React.FC = () => {
               </div>
             </div>
 
-
             <div className="product-meta">
-              <p>SKU: {product.sku || ""}</p>
-              <p>Category: {product.category_id || ""}</p>
-              <p>Tags: {product.tags || ""}
+              <p className="meta-sku">
+                <span className="meta-title">SKU</span>{" "}
+                <span>: {product.sku || ""}</span>
               </p>
-            </div>
+              <p className="meta-category">
+                <span className="meta-title">Category</span>{" "}
+                <span>: {category.name || ""}</span>
+              </p>
+              <p className="meta-tags">
+                <span className="meta-title">Tags</span>{" "}
+                <span>: {product.tags || ""}</span>
+              </p>
 
-            <div className="share">
-              <p>Share:</p>
-              <i className="icon-facebook" style={{cursor: 'pointer'}}><img src={iconFacebook} alt="Facebook" onClick={shareOnFacebook}/></i>
-              <i className="icon-linkedin" style={{cursor: 'pointer'}}><img src={iconLinkedin} alt="LinkedIn" onClick={shareOnLinkedIn}/></i>
-              <i className="icon-twitter" style={{cursor: 'pointer'}}><img src={iconTwitter} alt="Twitter" onClick={shareOnTwitter}/></i>
+                <p className="meta-share">
+                  <span className="meta-title share-title">Share</span>
+                  <span className="share-icons">: 
+                    <i className="icon-facebook" style={{ cursor: "pointer" }}>
+                      <img
+                        src={iconFacebook}
+                        alt="Facebook"
+                        onClick={shareOnFacebook}
+                        width={20}
+                        height={20}
+                      />
+                    </i>
+                    <i className="icon-linkedin" style={{ cursor: "pointer" }}>
+                      <img
+                        src={iconLinkedin}
+                        alt="LinkedIn"
+                        onClick={shareOnLinkedIn}
+                        width={20}
+                        height={20}
+                      />
+                    </i>
+                    <i className="icon-twitter" style={{ cursor: "pointer" }}>
+                      <img 
+                        src={iconTwitter} 
+                        alt="Twitter" 
+                        onClick={shareOnTwitter} 
+                        width={20}
+                        height={20}
+                      />
+                    </i>
+                  </span>
+                </p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="description">
-        <Tabs />
+      <div className="tabs-description">
+        <Tabs
+          description={product.large_description || ""}
+          additional={product.additional_information || ""}
+        />
       </div>
 
-      
       <div className="single-products">
         <h1 className="single-products-text">Related Products</h1>
         <ProductsContainer products={products} pageType="single" />

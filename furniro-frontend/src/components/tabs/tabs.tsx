@@ -1,12 +1,28 @@
 import React, { useState } from 'react';
 import './tabs.css';
 
-const Tabs: React.FC = () => {
+interface TabProps {
+  description: string;
+  additional: string;
+}
+
+const Tabs: React.FC<TabProps> = (props) => {
   const [activeTab, setActiveTab] = useState<string>('description');
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
   };
+
+  const formatText = (text: string) => {
+    return text.split('\n\n').map((paragraph, index) => (
+      <span key={index}>
+        {paragraph}
+        <br /><br />
+      </span>
+    ));
+  };
+
+
 
   return (
     <div className="tabs-container">
@@ -28,20 +44,16 @@ const Tabs: React.FC = () => {
       <div className="tab-content">
         {activeTab === 'description' && (
           <div className="tab-pane">
-            <h2>Description</h2>
             <p>
-              Here is the product description. It gives detailed information
-              about the features and benefits of the product.
+              {formatText(props.description)}
             </p>
           </div>
         )}
 
         {activeTab === 'additional' && (
           <div className="tab-pane">
-            <h2>Additional Information</h2>
             <p>
-              This section contains additional information such as dimensions,
-              weight, and other technical details about the product.
+              {formatText(props.additional)}
             </p>
           </div>
         )}
