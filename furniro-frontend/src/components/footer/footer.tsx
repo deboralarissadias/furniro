@@ -1,28 +1,39 @@
 import React, { useState } from 'react';
 import logoFooter from '../../assets/images/logo-footer.svg';
 import './footer.css';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
 
     const [email, setEmail] = useState('');
     const [error, setError] = useState(false);
+    const [success, setSuccess] = useState(false);
+
+    const navigate = useNavigate();
+
+    const handleLogoClick = () => {
+        navigate('/');
+    }
+
+
+    const handleChange = (event: any) => {
+        setEmail(event.target.value);
+        setError(false); // Reseta o erro ao alterar o email
+        setSuccess(false); // Reseta a mensagem de sucesso ao alterar o email
+    };
 
     const handleSubscribe = (event: any) => {
         event.preventDefault();
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!emailPattern.test(email)) {
-        setError(true);
+            setError(true);
+            setSuccess(false);
         } else {
-        setError(false);
-        // Coloque aqui o que deve acontecer no envio do email válido
-        console.log('Email válido:', email);
+            setError(false);
+            setSuccess(true); // Exibe a mensagem de sucesso
+            console.log('Email válido:', email);
         }
-    };
-
-    const handleChange = (event: any) => {
-        setEmail(event.target.value);
-        setError(false);
     };
     
     return (
@@ -31,7 +42,7 @@ const Footer = () => {
             <div className='footer-top'>
                 <div className='footer-info'>
                     <div className="logo-footer">
-                        <img src={logoFooter} alt="Furniro Logo" />
+                        <img src={logoFooter} alt="Furniro Logo" onClick={handleLogoClick} style={{cursor: 'pointer'}} />
                     </div>
                     <div className="footer-text">
                         <p>400 University Drive Suite 200 Coral Gables,</p>
@@ -42,8 +53,8 @@ const Footer = () => {
                 <div className='footer-links'>
                     <dl>
                         <dt className='footer-links-title'>Links</dt>
-                        <dt className='footer-links-text'><a href="#" >Home</a></dt>
-                        <dt className='footer-links-text'><a href="#" >Shop</a></dt>
+                        <dt className='footer-links-text'><Link to="/" >Home</Link></dt>
+                        <dt className='footer-links-text'><Link to="/shop">Shop</Link></dt>
                         <dt className='footer-links-text'><a href="#" >About</a></dt>
                         <dt className='footer-links-text'><a href="#" >Contact</a></dt>
                     </dl>
@@ -62,19 +73,20 @@ const Footer = () => {
                     <h1 className="newsletter-title">Newsletter</h1>
                     <div className="newsletter-input-container">
                         <input
-                        type="email"
-                        id="email-input"
-                        className="email-input"
-                        placeholder="Enter Your Email Address"
-                        value={email}
-                        onChange={handleChange}
-                        required
+                            type="email"
+                            id="email-input"
+                            className="email-input"
+                            placeholder="Enter Your Email Address"
+                            value={email}
+                            onChange={handleChange}
+                            required
                         />
                         <button className="btn-subscribe" id="subscribe-btn" onClick={handleSubscribe}>
-                        SUBSCRIBE
+                            SUBSCRIBE
                         </button>
                     </div>
                     {error && <div className="email-error">Please enter a valid email address.</div>}
+                    {success && <div className="email-success">Successfully subscribed!</div>}
                 </div>
             </div>
 

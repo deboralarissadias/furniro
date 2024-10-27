@@ -189,11 +189,11 @@
   cursor: pointer; /* Cursor pointer para interatividade */
 }
 
-.filter-dropdown input[type="radio"] {
+.filter-dropdown input[type="checkbox"] {
   margin-right: 10px; /* Espaçamento entre o input e o texto */
 }
 
-.filter-dropdown input[type="radio"]:hover {
+.filter-dropdown input[type="checkbox"]:hover {
   cursor: pointer;
 }
 
