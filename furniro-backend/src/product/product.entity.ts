@@ -27,7 +27,6 @@ export class Product {
   @Column({ type: 'text', nullable: true })
   large_description: string | null;
 
-
   @Column('decimal')
   price: number;
 
@@ -58,4 +57,36 @@ export class Product {
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   updated_date: Date;
+
+  // Campos adicionais
+
+  @Column({
+    type: 'json',
+    nullable: true
+  })
+  variants?: {
+    size: string[];
+    color: string[];
+  };
+
+  @Column({
+    type: 'json',
+    nullable: true
+  })
+  reviews?: {
+    rating: number;
+    total_reviews: number;
+  };
+
+  @Column({
+    type: 'text',
+    nullable: true
+  })
+  tags?: string;
+
+  @Column({
+    type: 'text',
+    nullable: true
+  })
+  additional_information?: string;
 }

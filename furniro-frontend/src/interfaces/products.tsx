@@ -17,4 +17,14 @@ export interface ProductProps {
   large_description: string;
   updated_date: any;
   created_date: any;
+  variants?: {
+    size: string[];
+    color: string[];
+  };
+  reviews?: {
+    rating: number;
+    total_reviews: number;
+  };
+  tags?: string;
+  additional_infomartion?: string;
 }

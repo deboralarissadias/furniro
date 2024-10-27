@@ -15,20 +15,23 @@
     font-size: 20px;
 }
 
+.product-details-container {
+    display: flex;
+    padding: 20px;
+    width: 100%;
+}
+
 .product-details {
     display: flex;
     gap: 20px;
-    padding: 20px;
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
 }
 
 .product-details .product-images {
-    flex: 1;
     display: flex;
     flex-direction: row-reverse;
-    width: 553px;
     height: 500px;
     gap: 32px;
 }
@@ -56,7 +59,6 @@
 }
 
 .product-details .product-info {
-    flex: 2;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -79,10 +81,50 @@
 
 .product-details .ratings {
     display: flex;
+}
+
+/* Container das estrelas */
+.stars-rating {
+    display: flex;
+    font-size: 0; /* Remove espaçamento entre estrelas */
+    position: relative;
+    font-family: "Satoshi";
+    align-items: center;
+    width: 100%;
+}
+
+/* Estilo geral das estrelas */
+/* CSS Clip-Path Generator usei apenas para o clip-path: polygon*/
+.star {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: #FFFFFF; /* Cor da estrela não preenchida */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    margin-right: 1px;
+}
+
+/* Estrela preenchida */
+.star.filled {
+    background-color: #FFC633;
+}
+
+/* Meia estrela */
+.star.half-filled {
+    background: linear-gradient(90deg, #FFC633 50%, #FFFFFF 50%);
+    background-clip: content-box;
+}
+
+.stars-rating-text {
     font-family: var(--font-family-main);
     font-size: 13px;
     color: #9F9F9F;
-    gap: 15px;
+    margin-left: 13px;
+}
+
+.stars-rating-text-light {
+    font-weight: normal;
+    color: #000000;
 }
 
 .product-details .description {
@@ -106,6 +148,8 @@
     border-radius: 5px;
 }
 
+
+
 .product-details .product-options .size-options button:hover {
     cursor: pointer;
     background-color: #B88E2F;
@@ -125,7 +169,11 @@
     padding: 5px 10px;
     border: 1px;
     cursor: pointer;
-    background: #F9F1E7;
+}
+
+.size-btn.active {
+    background: #B88E2F;
+    color: white;
 }
 
 .product-details .color {
@@ -135,60 +183,76 @@
     border: 1px solid #ccc;
 }
 
-.product-details .color.purple {
-    background-color: #816DFA;
-}
-
-.product-details .color.black {
-    background-color: #000000;
-}
-
-.product-details .color.brown {
-    background-color: #B88E2F;
-}
-
-.product-details .quantity {
+.add-to-cart-container {
     display: flex;
-    gap: 10px;
     align-items: center;
+    justify-content: space-between;
 }
 
-.product-details .quantity button {
-    padding: 5px 10px;
-}
-
-.product-details .quantity input {
+.quantity {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #9F9F9F;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 64px;
+    width: 120px;
+    justify-content: space-between;
+  }
+  
+  .quantity button {
+    background: none;
+    border: none;
+    width: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #000000;
+    font-weight: 400;
+    font-family: var(--font-family-main);
+  }
+  
+  .quantity input {
     width: 40px;
     text-align: center;
-}
+    border: none;
+    font-size: 16px;
+    outline: none;
+    font-weight: 500;
+    font-family: var(--font-family-main);
 
-.product-details .action-buttons {
-    display: flex;
-    gap: 20px;
-}
+    -moz-appearance: textfield; /* Para navegadores Firefox */
+    -webkit-appearance: none; /* Para navegadores WebKit (Chrome, Safari) */
+    appearance: textfield; /* Para navegadores modernos */
+  }
 
-.product-details .add-to-cart, .product-details .compare {
+  .quantity input::-webkit-outer-spin-button,
+  .quantity input::-webkit-inner-spin-button {
+    display: none; /* Remove setinhas em navegadores WebKit */
+  }
+  
+  .action-buttons {
+    display: inline-flex;
+    gap: 10px;
+    margin-left: 10px;
+  }
+  
+  .add-to-cart,
+  .compare {
+    border: 1px solid #333;
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: transparent;
+    cursor: pointer;
     width: 215px;
     height: 64px;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.product-details .add-to-cart {
-    font-family: var(--font-family-main);
-    font-size: 20px;
-    background-color: none;
-    color: #000000;
-}
-
-.product-details .compare {
-    font-family: var(--font-family-main);
-    font-size: 20px;
-    background-color: none;
-    color: #000000;
-}
+    border-radius: 15px;
+  }
+  
+  .add-to-cart:hover,
+  .compare:hover {
+    background-color: #f0f0f0;
+  }
+  
 
 .product-details .product-meta {
     font-size: 12px;

@@ -117,6 +117,14 @@
   padding-block: 0;
   border-radius: 10px;
   text-align: center;
+
+  -moz-appearance: textfield; /* Para navegadores Firefox */
+  -webkit-appearance: none; /* Para navegadores WebKit (Chrome, Safari) */
+  appearance: textfield; /* Para navegadores modernos */
+}
+
+.limit-input::-webkit-outer-spin-button, .limit-input::-webkit-inner-spin-button {
+  display: none; /* Remove setinhas em navegadores WebKit */
 }
 
 .limit-text, .sort-text {
@@ -259,4 +267,3 @@
   width: 98px !important;
   height: 60px !important;
 }
-
