@@ -53,7 +53,10 @@
     color: var(--primary-color-hover);
     font-family: var(--font-family-semibold);
     font-size: 16px;
-    
+  }
+
+  .see-details-btn:hover {
+    cursor: pointer;
   }
 
   .hover-overlay-links {

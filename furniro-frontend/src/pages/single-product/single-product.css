@@ -135,7 +135,7 @@
     height: 80px;
 }
 
-.product-details .product-options {
+.product-details .product-options, .color-container {
     font-size: var(--font-family-main);
     font-size: 14px;
     color: #9F9F9F;
@@ -147,8 +147,6 @@
 .product-details .size-options button {
     border-radius: 5px;
 }
-
-
 
 .product-details .product-options .size-options button:hover {
     cursor: pointer;
@@ -255,23 +253,43 @@
   
 
 .product-details .product-meta {
-    font-size: 12px;
-    color: #9F9F9F;
-}
-
-.product-details .share {
     display: flex;
-    gap: 10px;
-    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+    font-family: var(--font-family-main);
+    margin-top: 60px;
+    border-top: 1px solid #D9D9D9;
+    padding-top: 41px;
 }
 
-.product-details .share p {
+.meta-sku, .meta-category, .meta-tags, .meta-share {
+    display: flex;
+    font-size: 16px;
+    color: #9F9F9F;
     margin: 0;
 }
 
-.product-details .share a {
-    color: #333;
-    font-size: 18px;
+.meta-title {
+    width: 92px;
+}
+
+.share-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 20px;
+}
+.share-title {
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+}
+
+.icon-facebook, .icon-linkedin, .icon-twitter {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
 }
 
 
@@ -305,4 +323,13 @@
 .single-products-button:hover {
     cursor: pointer;
     background-color: #FFF3E3;
+}
+
+
+.tabs-description {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 330px;
+    border-top: 1px solid #D9D9D9;
 }

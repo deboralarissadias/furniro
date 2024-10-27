@@ -15,6 +15,10 @@ import { useLocation } from "react-router-dom";
 import Spinner from "../../components/spinner/spinner";
 
 const Shop: React.FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  }
+
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const categoryParams = queryParams.get("category");
@@ -100,6 +104,13 @@ const Shop: React.FC = () => {
     } else {
       fetchProducts(currentPage, limit);
     }
+
+    scrollToTop();
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []); // O array vazio [] garante que o efeito será executado apenas uma vez ao montar o componente
 
   const breadcrumbPaths = [
@@ -161,6 +172,8 @@ const Shop: React.FC = () => {
     } else {
       fetchProducts(pageNumber, limit, sort, categoryFilter); // Use pageNumber
     }
+
+    scrollToTop();
   };
 
   // Função para lidar com cliques fora do dropdown
@@ -169,14 +182,6 @@ const Shop: React.FC = () => {
       setIsFilterOpen(false); // Fecha o dropdown se o clique for fora
     }
   };
-
-  // Hook para adicionar/remover o listener de cliques fora
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
     <div>
