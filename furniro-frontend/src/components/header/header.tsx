@@ -20,7 +20,7 @@ const Header: React.FC = () => {
   return (
     <header className="header">
       <div className="logo">
-        <img src={logo} alt="Furniro Logo" onClick={handleLogoClick} />
+        <img src={logo} alt="Furniro Logo" onClick={handleLogoClick} style={{cursor: 'pointer'}} />
       </div>
       <nav className="nav-links">
         <a href="#" onClick={() => handleLinkClick('')} >Home</a>

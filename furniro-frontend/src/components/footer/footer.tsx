@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logoFooter from '../../assets/images/logo-footer.svg';
 import './footer.css';
 
 const Footer = () => {
 
+    const [email, setEmail] = useState('');
+    const [error, setError] = useState(false);
+
+    const handleSubscribe = (event: any) => {
+        event.preventDefault();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailPattern.test(email)) {
+        setError(true);
+        } else {
+        setError(false);
+        // Coloque aqui o que deve acontecer no envio do email válido
+        console.log('Email válido:', email);
+        }
+    };
+
+    const handleChange = (event: any) => {
+        setEmail(event.target.value);
+        setError(false);
+    };
+    
     return (
         <div className="footer">
 
@@ -37,12 +58,23 @@ const Footer = () => {
                     </dl>
 
                 </div>
-                <div className='footer-newsletter'>
-                    <dl>
-                        <dt className='footer-links-title'>Newsletter</dt>
-                        <dt className='footer-subscribe'><a href="#" >SUBSCRIBE</a></dt>
-                    </dl>
-
+                <div className="footer-newsletter">
+                    <h1 className="newsletter-title">Newsletter</h1>
+                    <div className="newsletter-input-container">
+                        <input
+                        type="email"
+                        id="email-input"
+                        className="email-input"
+                        placeholder="Enter Your Email Address"
+                        value={email}
+                        onChange={handleChange}
+                        required
+                        />
+                        <button className="btn-subscribe" id="subscribe-btn" onClick={handleSubscribe}>
+                        SUBSCRIBE
+                        </button>
+                    </div>
+                    {error && <div className="email-error">Please enter a valid email address.</div>}
                 </div>
             </div>
 
