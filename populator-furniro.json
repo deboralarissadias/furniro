@@ -54,7 +54,17 @@
     "discount_percent": 30,
     "is_new": false,
     "image_link": "https://i.postimg.cc/htC1bHbg/mesa.png",
-    "other_images_link": []
+    "other_images_link": [],
+    "variants": {
+      "size": ["L", "XL", "XS"],
+      "color": ["#816DFA", "#000000", "#B88E2F"]
+    },
+    "tags": "Sofa, Chair, Home, Shop",
+    "additional_information": "Embodying the elegance of modern comfort, the Camden sofa is a refined blend of timeless style and lasting support, designed to elevate any living space. Weighing just the right amount for stability, the Camden showcases a structured yet inviting design with softly curved armrests and plush cushions, offering a cozy refuge with a dash of sophistication.\n\nThis compact, thoughtfully crafted piece is a champion of both comfort and form, making it an excellent fit for cozy evenings or lively gatherings alike. Its finely tuned upholstery provides a soft yet resilient feel, while the hardwood frame ensures durability, allowing you to personalize your lounging experience. Complete with a sleek, textured fabric and subtle stitching details, the Camden is as easy to move as it is to love.",
+    "reviews": {
+        "rating": 5,
+        "total_reviews": 5
+    }
   },
   {
     "name": "Leviosa",
@@ -67,7 +77,17 @@
     "discount_percent": null,
     "is_new": false,
     "image_link": "https://i.postimg.cc/vTzV8V0M/cadeira.png",
-    "other_images_link": []
+    "other_images_link": [],
+    "variants": {
+      "size": ["L", "XL", "XS"],
+      "color": ["#816DFA", "#000000", "#B88E2F"]
+    },
+    "tags": "Sofa, Chair, Home, Shop",
+    "additional_information": "Embodying the elegance of modern comfort, the Camden sofa is a refined blend of timeless style and lasting support, designed to elevate any living space. Weighing just the right amount for stability, the Camden showcases a structured yet inviting design with softly curved armrests and plush cushions, offering a cozy refuge with a dash of sophistication.\n\nThis compact, thoughtfully crafted piece is a champion of both comfort and form, making it an excellent fit for cozy evenings or lively gatherings alike. Its finely tuned upholstery provides a soft yet resilient feel, while the hardwood frame ensures durability, allowing you to personalize your lounging experience. Complete with a sleek, textured fabric and subtle stitching details, the Camden is as easy to move as it is to love.",
+    "reviews": {
+        "rating": 4,
+        "total_reviews": 5
+    }
   },
   {
     "name": "Lolito",
@@ -81,6 +101,16 @@
     "is_new": false,
     "image_link": "https://i.postimg.cc/pXCfRgS8/sofa-grande.png",
     "other_images_link": ["link_to_other_image1", "link_to_other_image2"],
+    "variants": {
+      "size": ["L", "XL", "XS"],
+      "color": ["#816DFA", "#000000", "#B88E2F"]
+    },
+    "tags": "Sofa, Chair, Home, Shop",
+    "additional_information": "Embodying the elegance of modern comfort, the Camden sofa is a refined blend of timeless style and lasting support, designed to elevate any living space. Weighing just the right amount for stability, the Camden showcases a structured yet inviting design with softly curved armrests and plush cushions, offering a cozy refuge with a dash of sophistication.\n\nThis compact, thoughtfully crafted piece is a champion of both comfort and form, making it an excellent fit for cozy evenings or lively gatherings alike. Its finely tuned upholstery provides a soft yet resilient feel, while the hardwood frame ensures durability, allowing you to personalize your lounging experience. Complete with a sleek, textured fabric and subtle stitching details, the Camden is as easy to move as it is to love.",
+    "reviews": {
+        "rating": 3.5,
+        "total_reviews": 5
+    }
   },
   {
     "name": "Respira",
@@ -93,7 +123,17 @@
     "discount_percent": null,
     "is_new": true,
     "image_link": "https://i.postimg.cc/5yqwHGNh/sofa-sala.png",
-    "other_images_link": []
+    "other_images_link": [],
+    "variants": {
+      "size": ["L", "XL", "XS"],
+      "color": ["#816DFA", "#000000", "#B88E2F"]
+    },
+    "tags": "Sofa, Chair, Home, Shop",
+    "additional_information": "Embodying the elegance of modern comfort, the Camden sofa is a refined blend of timeless style and lasting support, designed to elevate any living space. Weighing just the right amount for stability, the Camden showcases a structured yet inviting design with softly curved armrests and plush cushions, offering a cozy refuge with a dash of sophistication.\n\nThis compact, thoughtfully crafted piece is a champion of both comfort and form, making it an excellent fit for cozy evenings or lively gatherings alike. Its finely tuned upholstery provides a soft yet resilient feel, while the hardwood frame ensures durability, allowing you to personalize your lounging experience. Complete with a sleek, textured fabric and subtle stitching details, the Camden is as easy to move as it is to love.",
+    "reviews": {
+        "rating": 3,
+        "total_reviews": 5
+    }
   },
   {
     "name": "Grifo",
@@ -106,7 +146,17 @@
     "discount_percent": null,
     "is_new": false,
     "image_link": "https://i.postimg.cc/qq0KdLXj/abajur.png",
-    "other_images_link": []
+    "other_images_link": [],
+    "variants": {
+      "size": ["L", "XL", "XS"],
+      "color": ["#816DFA", "#000000", "#B88E2F"]
+    },
+    "tags": "Sofa, Chair, Home, Shop",
+    "additional_information": "Embodying the elegance of modern comfort, the Camden sofa is a refined blend of timeless style and lasting support, designed to elevate any living space. Weighing just the right amount for stability, the Camden showcases a structured yet inviting design with softly curved armrests and plush cushions, offering a cozy refuge with a dash of sophistication.\n\nThis compact, thoughtfully crafted piece is a champion of both comfort and form, making it an excellent fit for cozy evenings or lively gatherings alike. Its finely tuned upholstery provides a soft yet resilient feel, while the hardwood frame ensures durability, allowing you to personalize your lounging experience. Complete with a sleek, textured fabric and subtle stitching details, the Camden is as easy to move as it is to love.",
+    "reviews": {
+        "rating": 5,
+        "total_reviews": 5
+    }
   },
   {
     "name": "Muggo",
@@ -119,7 +169,17 @@
     "discount_percent": null,
     "is_new": true,
     "image_link": "https://i.postimg.cc/qv78R1fF/sofa.png",
-    "other_images_link": []
+    "other_images_link": [],
+    "variants": {
+      "size": ["L", "XL", "XS"],
+      "color": ["#816DFA", "#000000", "#B88E2F"]
+    },
+    "tags": "Sofa, Chair, Home, Shop",
+    "additional_information": "Embodying the elegance of modern comfort, the Camden sofa is a refined blend of timeless style and lasting support, designed to elevate any living space. Weighing just the right amount for stability, the Camden showcases a structured yet inviting design with softly curved armrests and plush cushions, offering a cozy refuge with a dash of sophistication.\n\nThis compact, thoughtfully crafted piece is a champion of both comfort and form, making it an excellent fit for cozy evenings or lively gatherings alike. Its finely tuned upholstery provides a soft yet resilient feel, while the hardwood frame ensures durability, allowing you to personalize your lounging experience. Complete with a sleek, textured fabric and subtle stitching details, the Camden is as easy to move as it is to love.",
+    "reviews": {
+        "rating": 4.5,
+        "total_reviews": 5
+    }
   },
   {
     "name": "Pingky",
@@ -132,12 +192,22 @@
     "discount_percent": 50,
     "is_new": false,
     "image_link": "https://i.postimg.cc/3rgjbyCt/sofa-pequeno.png",
-    "other_images_link": []
+    "other_images_link": [],
+    "variants": {
+      "size": ["L", "XL", "XS"],
+      "color": ["#816DFA", "#000000", "#B88E2F"]
+    },
+    "tags": "Sofa, Chair, Home, Shop",
+    "additional_information": "Embodying the elegance of modern comfort, the Camden sofa is a refined blend of timeless style and lasting support, designed to elevate any living space. Weighing just the right amount for stability, the Camden showcases a structured yet inviting design with softly curved armrests and plush cushions, offering a cozy refuge with a dash of sophistication.\n\nThis compact, thoughtfully crafted piece is a champion of both comfort and form, making it an excellent fit for cozy evenings or lively gatherings alike. Its finely tuned upholstery provides a soft yet resilient feel, while the hardwood frame ensures durability, allowing you to personalize your lounging experience. Complete with a sleek, textured fabric and subtle stitching details, the Camden is as easy to move as it is to love.",
+    "reviews": {
+        "rating": 5,
+        "total_reviews": 5
+    }
   },
   {
     "name": "Potty",
     "sku": "PTY987",
-    "category_id": 1,
+    "category_id": 2,
     "description": "Minimalist flower pot",
     "large_description": "A complete dining set featuring a modern design and durable materials for your dining room",
     "price": 500000,
@@ -145,7 +215,132 @@
     "discount_percent": null,
     "is_new": true,
     "image_link": "https://i.postimg.cc/28rdpz0r/sofa-grande2.png",
-    "other_images_link": []
+    "other_images_link": [],
+    "variants": {
+      "size": ["L", "XL", "XS"],
+      "color": ["#816DFA", "#000000", "#B88E2F"]
+    },
+    "tags": "Sofa, Chair, Home, Shop",
+    "additional_information": "Embodying the elegance of modern comfort, the Camden sofa is a refined blend of timeless style and lasting support, designed to elevate any living space. Weighing just the right amount for stability, the Camden showcases a structured yet inviting design with softly curved armrests and plush cushions, offering a cozy refuge with a dash of sophistication.\n\nThis compact, thoughtfully crafted piece is a champion of both comfort and form, making it an excellent fit for cozy evenings or lively gatherings alike. Its finely tuned upholstery provides a soft yet resilient feel, while the hardwood frame ensures durability, allowing you to personalize your lounging experience. Complete with a sleek, textured fabric and subtle stitching details, the Camden is as easy to move as it is to love.",
+    "reviews": {
+        "rating": 5,
+        "total_reviews": 5
+    }
+  },
+  {
+    "name": "Asgaard sofa",
+    "sku": "SS001",
+    "category_id": 6,
+    "description": "Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound.",
+    "large_description": "Embodying the raw, wayward spirit of rock 'n' roll, the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall, unplugs the chords, and takes the show on the road.\n\nWeighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering. Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound that is both articulate and pronounced. The analogue knobs allow you to fine tune the controls to your personal preferences while the guitar-influenced leather strap enables easy and stylish travel.",
+    "price": 250000,
+    "discount_price": null,
+    "discount_percent": null,
+    "is_new": true,
+    "image_link": "https://i.postimg.cc/wT4KHNFQ/sofas.png",
+    "other_images_link": ["https://i.postimg.cc/wT4KHNFQ/sofas.png", "https://i.postimg.cc/FHjQsmvG/mini-sofa-1.png", "https://i.postimg.cc/Gm0CCtWH/mini-sofa-2.png", "https://i.postimg.cc/R04xW8Vm/mini-sofa-3.png", "https://i.postimg.cc/8C4QMHj6/mini-sofa-4.png"],
+    "variants": {
+        "size": ["L", "XL", "XS"],
+        "color": ["#816DFA", "#000000", "#B88E2F"]
+    },
+    "tags": "Sofa, Chair, Home, Shop",
+    "additional_information": "Embodying the elegance of modern comfort, the Camden sofa is a refined blend of timeless style and lasting support, designed to elevate any living space. Weighing just the right amount for stability, the Camden showcases a structured yet inviting design with softly curved armrests and plush cushions, offering a cozy refuge with a dash of sophistication.\n\nThis compact, thoughtfully crafted piece is a champion of both comfort and form, making it an excellent fit for cozy evenings or lively gatherings alike. Its finely tuned upholstery provides a soft yet resilient feel, while the hardwood frame ensures durability, allowing you to personalize your lounging experience. Complete with a sleek, textured fabric and subtle stitching details, the Camden is as easy to move as it is to love.",
+    "reviews": {
+        "rating": 4.5,
+        "total_reviews": 5
+    }
+  },
+  {
+    "name": "Sofa The best",
+    "sku": "SS002",
+    "category_id": 2,
+    "description": "Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound.",
+    "large_description": "Embodying the raw, wayward spirit of rock 'n' roll, the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall, unplugs the chords, and takes the show on the road.\n\nWeighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering. Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound that is both articulate and pronounced. The analogue knobs allow you to fine tune the controls to your personal preferences while the guitar-influenced leather strap enables easy and stylish travel.",
+    "price": 250000,
+    "discount_price": null,
+    "discount_percent": null,
+    "is_new": true,
+    "image_link": "https://i.postimg.cc/wT4KHNFQ/sofas.png",
+    "other_images_link": ["https://i.postimg.cc/wT4KHNFQ/sofas.png", "https://i.postimg.cc/FHjQsmvG/mini-sofa-1.png", "https://i.postimg.cc/Gm0CCtWH/mini-sofa-2.png", "https://i.postimg.cc/R04xW8Vm/mini-sofa-3.png", "https://i.postimg.cc/8C4QMHj6/mini-sofa-4.png"],
+    "variants": {
+      "size": ["L", "XL", "XS"],
+      "color": ["#816DFA", "#000000", "#B88E2F"]
+    },
+    "tags": "Sofa, Chair, Home, Shop",
+    "additional_information": "Embodying the elegance of modern comfort, the Camden sofa is a refined blend of timeless style and lasting support, designed to elevate any living space. Weighing just the right amount for stability, the Camden showcases a structured yet inviting design with softly curved armrests and plush cushions, offering a cozy refuge with a dash of sophistication.\n\nThis compact, thoughtfully crafted piece is a champion of both comfort and form, making it an excellent fit for cozy evenings or lively gatherings alike. Its finely tuned upholstery provides a soft yet resilient feel, while the hardwood frame ensures durability, allowing you to personalize your lounging experience. Complete with a sleek, textured fabric and subtle stitching details, the Camden is as easy to move as it is to love.",
+    "reviews": {
+        "rating": 5,
+        "total_reviews": 5
+    }
+  },
+  {
+    "name": "Leviosa",
+    "sku": "LEV123",
+    "category_id": 3,
+    "description": "Stylish cafe chair",
+    "large_description": "Simple and comfortable cafe chair",
+    "price": 2500000,
+    "discount_price": null,
+    "discount_percent": null,
+    "is_new": false,
+    "image_link": "https://i.postimg.cc/vTzV8V0M/cadeira.png",
+    "other_images_link": [],
+    "variants": {
+      "size": ["L", "XL", "XS"],
+      "color": ["#816DFA", "#000000", "#B88E2F"]
+    },
+    "tags": "Sofa, Chair, Home, Shop",
+    "additional_information": "Embodying the elegance of modern comfort, the Camden sofa is a refined blend of timeless style and lasting support, designed to elevate any living space. Weighing just the right amount for stability, the Camden showcases a structured yet inviting design with softly curved armrests and plush cushions, offering a cozy refuge with a dash of sophistication.\n\nThis compact, thoughtfully crafted piece is a champion of both comfort and form, making it an excellent fit for cozy evenings or lively gatherings alike. Its finely tuned upholstery provides a soft yet resilient feel, while the hardwood frame ensures durability, allowing you to personalize your lounging experience. Complete with a sleek, textured fabric and subtle stitching details, the Camden is as easy to move as it is to love.",
+    "reviews": {
+        "rating": 4,
+        "total_reviews": 5
+    }
+  },
+  {
+    "name": "Pingky",
+    "sku": "PNG123",
+    "category_id": 3,
+    "description": "Cute bed set",
+    "large_description": "A comfortable and stylish lounge chair perfect for relaxing in your living room",
+    "price": 7000000,
+    "discount_price": 14000000,
+    "discount_percent": 50,
+    "is_new": false,
+    "image_link": "https://i.postimg.cc/3rgjbyCt/sofa-pequeno.png",
+    "other_images_link": [],
+    "variants": {
+      "size": ["L", "XL", "XS"],
+      "color": ["#816DFA", "#000000", "#B88E2F"]
+    },
+    "tags": "Sofa, Chair, Home, Shop",
+    "additional_information": "Embodying the elegance of modern comfort, the Camden sofa is a refined blend of timeless style and lasting support, designed to elevate any living space. Weighing just the right amount for stability, the Camden showcases a structured yet inviting design with softly curved armrests and plush cushions, offering a cozy refuge with a dash of sophistication.\n\nThis compact, thoughtfully crafted piece is a champion of both comfort and form, making it an excellent fit for cozy evenings or lively gatherings alike. Its finely tuned upholstery provides a soft yet resilient feel, while the hardwood frame ensures durability, allowing you to personalize your lounging experience. Complete with a sleek, textured fabric and subtle stitching details, the Camden is as easy to move as it is to love.",
+    "reviews": {
+        "rating": 5,
+        "total_reviews": 5
+    }
+  },
+  {
+    "name": "Sofa The best",
+    "sku": "SS002",
+    "category_id": 6,
+    "description": "Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound.",
+    "large_description": "Embodying the raw, wayward spirit of rock 'n' roll, the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall, unplugs the chords, and takes the show on the road.\n\nWeighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering. Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound that is both articulate and pronounced. The analogue knobs allow you to fine tune the controls to your personal preferences while the guitar-influenced leather strap enables easy and stylish travel.",
+    "price": 250000,
+    "discount_price": null,
+    "discount_percent": null,
+    "is_new": true,
+    "image_link": "https://i.postimg.cc/wT4KHNFQ/sofas.png",
+    "other_images_link": ["https://i.postimg.cc/wT4KHNFQ/sofas.png", "https://i.postimg.cc/FHjQsmvG/mini-sofa-1.png", "https://i.postimg.cc/Gm0CCtWH/mini-sofa-2.png", "https://i.postimg.cc/R04xW8Vm/mini-sofa-3.png", "https://i.postimg.cc/8C4QMHj6/mini-sofa-4.png"],
+    "variants": {
+      "size": ["L", "XL", "XS"],
+      "color": ["#816DFA", "#000000", "#B88E2F"]
+    },
+    "tags": "Sofa, Chair, Home, Shop",
+    "additional_information": "Embodying the elegance of modern comfort, the Camden sofa is a refined blend of timeless style and lasting support, designed to elevate any living space. Weighing just the right amount for stability, the Camden showcases a structured yet inviting design with softly curved armrests and plush cushions, offering a cozy refuge with a dash of sophistication.\n\nThis compact, thoughtfully crafted piece is a champion of both comfort and form, making it an excellent fit for cozy evenings or lively gatherings alike. Its finely tuned upholstery provides a soft yet resilient feel, while the hardwood frame ensures durability, allowing you to personalize your lounging experience. Complete with a sleek, textured fabric and subtle stitching details, the Camden is as easy to move as it is to love.",
+    "reviews": {
+        "rating": 5,
+        "total_reviews": 5
+    }
   }
 ]
 

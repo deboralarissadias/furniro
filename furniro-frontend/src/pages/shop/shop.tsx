@@ -111,7 +111,7 @@ const Shop: React.FC = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []); // O array vazio [] garante que o efeito será executado apenas uma vez ao montar o componente
+  }, [categoryParams]); // O array vazio [] garante que o efeito será executado apenas uma vez ao montar o componente
 
   const breadcrumbPaths = [
     { name: "Home", path: "/" },
@@ -151,6 +151,9 @@ const Shop: React.FC = () => {
     } else {
       // Limpa os filtros e faz a requisição padrão
       fetchProducts(currentPage, limit);
+
+      // Remove o parâmetro da URL ao limpar o filtro
+      window.history.pushState({}, "", "/shop");
     }
     setIsFilterOpen(false);
   };
@@ -202,7 +205,7 @@ const Shop: React.FC = () => {
                 <div className="filter-dropdown" ref={dropdownRef}>
                   <label>
                     <input
-                      type="radio"
+                      type="checkbox"
                       name="categoryFilter"
                       value="1"
                       checked={categoryFilter === "1"}
@@ -212,7 +215,7 @@ const Shop: React.FC = () => {
                   </label>
                   <label>
                     <input
-                      type="radio"
+                      type="checkbox"
                       name="categoryFilter"
                       value="2"
                       checked={categoryFilter === "2"}
@@ -222,13 +225,23 @@ const Shop: React.FC = () => {
                   </label>
                   <label>
                     <input
-                      type="radio"
+                      type="checkbox"
                       name="categoryFilter"
                       value="3"
                       checked={categoryFilter === "3"}
                       onChange={() => handleCategoryFilter("3")}
                     />
                     Bedroom
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="categoryFilter"
+                      value="6"
+                      checked={categoryFilter === "6"}
+                      onChange={() => handleCategoryFilter("6")}
+                    />
+                    Sofas
                   </label>
                   <button onClick={() => handleCategoryFilter("clean")}>
                     Limpar Filtros

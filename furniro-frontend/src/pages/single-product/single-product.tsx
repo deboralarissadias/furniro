@@ -13,6 +13,7 @@ import iconFacebook from "../../assets/icons/icon-facebook.svg";
 import iconLinkedin from "../../assets/icons/icon-linkedin.svg";
 import iconTwitter from "../../assets/icons/icon-twitter.svg";
 import { CategoryProps } from "../../interfaces/category";
+import Spinner from "../../components/spinner/spinner";
 
 const SingleProduct: React.FC = () => {
 
@@ -32,10 +33,46 @@ const SingleProduct: React.FC = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
+  const [limit, setLimit] = useState(4);
+  const [clickCount, setClickCount] = useState(0);
+
+  // Fazendo a requisição para o endpoint
+  const fetchProducts = async (limitShow: number, categoryId: number) => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        GET_PRODUCTS + `?page=1&limit=${limitShow}&categoryId=` + categoryId
+      ); 
+      const dataProducts = await response.json();
+      setProducts(dataProducts.products);
+      setLoading(false);
+    } catch (error) {
+      setProducts(productsMock);
+      console.error("Erro ao buscar produtos:", error);
+      setLoading(false); 
+    }
+  };
+
+  const fetchCategory = async () => {
+    setLoading(true);
+    try {
+      const categoryId = product.category_id;
+      const url = GET_CATEGORY.replace("{id}", `${categoryId}`);
+      const response = await fetch(url); 
+      const dataCategory = await response.json();
+      console.log(dataCategory);
+      setCategory(dataCategory);
+      setLoading(false);
+    } catch (error) {
+      console.error("Erro ao buscar categoria:", error);
+      setLoading(false); 
+    }
+  };
 
   useEffect(() => {
     // Fazendo a requisição para o endpoint
     const fetchProduct = async () => {
+      setLoading(true);
       const url = GET_PRODUCT.replace("{id}", `${id}`);
 
       try {
@@ -44,52 +81,23 @@ const SingleProduct: React.FC = () => {
         setProduct(data); // Atualiza o estado com os produtos
         setLoading(false); // Define que o carregamento foi concluído
         setSelectedImage(data.image_link);
-
+        fetchCategory();
+        fetchProducts(limit, data.category_id); // Chama a função para buscar os produtos relacionados
       } catch (error) {
         setProduct(productsMock[0]);
+        fetchProducts(limit, productsMock[0].category_id); 
         console.error("Erro ao buscar produto pelo ID:", error);
         setLoading(false); // Em caso de erro, para o carregamento
       }
     };
 
-    // Fazendo a requisição para o endpoint
-    const fetchProducts = async () => {
-      try {
-        const categoryId = product?.category_id || 1;
-        const response = await fetch(
-          GET_PRODUCTS + "?page=1&limit=4&categoryId=" + categoryId
-        ); 
-        const dataProducts = await response.json();
-        setProducts(dataProducts.products);
-        setLoading(false);
-      } catch (error) {
-        setProducts(productsMock);
-        console.error("Erro ao buscar produtos:", error);
-        setLoading(false); 
-      }
-    };
-
-    const fetchCategory = async () => {
-      try {
-        const categoryId = product.category_id || 1;
-        const url = GET_CATEGORY.replace("{id}", `${categoryId}`);
-        const response = await fetch(url); 
-        const dataCategory = await response.json();
-        console.log(dataCategory);
-        setCategory(dataCategory);
-        setLoading(false);
-      } catch (error) {
-        console.error("Erro ao buscar categoria:", error);
-        setLoading(false); 
-      }
-    };
-    
     // Chama a função ao montar o componente
-    fetchProducts(); 
-    fetchProduct(); 
+    fetchProduct();
     fetchCategory();
+    fetchProducts(limit, product.category_id); // Chama a função para buscar os produtos relacionados
+
     scrollToTop();
-  }, []); // O array vazio [] garante que o efeito será executado apenas uma vez ao montar o componente
+  }, [id]);
 
   function convertToSlug(name: string) {
     if (!name) {
@@ -119,8 +127,20 @@ const SingleProduct: React.FC = () => {
   };
 
   const handleShowMore = () => {
-    navigate("/products?categoryId=" + product.category_id);
+    const newClickCount = clickCount + 1;
+    setClickCount(newClickCount);
+  
+    if (newClickCount === 1) {
+      // Primeiro clique: busca a segunda página de produtos
+      const nextPage = limit + 4;
+      setLimit(nextPage);
+      fetchProducts(nextPage, product.category_id);
+    } else if (newClickCount === 2) {
+      // Segundo clique: redireciona para a página "Shop" com os produtos relacionados
+      window.location.href = `/shop?category=${product?.category_id || 1}`;
+    }
   };
+  
 
   const formatPrice = (price: number) => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -162,6 +182,8 @@ const SingleProduct: React.FC = () => {
   const shareOnTwitter = () => {
     window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}`, "_blank");
   };
+
+  console.log("product", products);
 
   return (
     <div>
@@ -314,12 +336,14 @@ const SingleProduct: React.FC = () => {
         />
       </div>
 
-      <div className="single-products">
-        <h1 className="single-products-text">Related Products</h1>
-        <ProductsContainer products={products} pageType="single" />
-        <button className="single-products-button" onClick={handleShowMore}>
-          Show More
-        </button>
+      <div className="single-products-container">
+        <div className="single-products">
+          <h1 className="single-products-text">Related Products</h1>
+          {loading ? <Spinner /> : <ProductsContainer products={products} pageType="single" />}
+          <button className="single-products-button" onClick={handleShowMore}>
+            Show More
+          </button>
+        </div>
       </div>
 
       <Footer />

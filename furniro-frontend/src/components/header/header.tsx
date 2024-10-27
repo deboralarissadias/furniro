@@ -5,7 +5,7 @@ import user from '../../assets/icons/user.svg';
 import search from '../../assets/icons/search.svg';
 import heart from '../../assets/icons/heart.svg';
 import cart from '../../assets/icons/cart.svg';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
@@ -14,17 +14,14 @@ const Header: React.FC = () => {
     navigate('/');
   }
 
-  const handleLinkClick = (route: string) => {
-    navigate(`/${route}`);
-  }
   return (
     <header className="header">
       <div className="logo">
         <img src={logo} alt="Furniro Logo" onClick={handleLogoClick} style={{cursor: 'pointer'}} />
       </div>
       <nav className="nav-links">
-        <a href="#" onClick={() => handleLinkClick('')} >Home</a>
-        <a href="#" onClick={() => handleLinkClick('shop')}>Shop</a>
+        <Link to="/" >Home</Link>
+        <Link to="/shop">Shop</Link>
         <a href="#">About</a>
         <a href="#">Contact</a>
       </nav>
