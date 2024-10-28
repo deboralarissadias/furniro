@@ -104,3 +104,72 @@
     cursor: pointer;
     background-color: #FFF3E3;
 }
+
+
+@media (min-width: 1880px) and (max-width: 1919px) {
+    .home-banner {
+        background-position: center -54px;
+    }
+}
+
+@media (min-width: 1800px) and (max-width: 1879px) {
+    .home-banner {
+        background-position: center -25px;
+    }
+}
+
+@media (min-width: 1700px) and (max-width: 1799px) {
+    .home-banner {
+        background-position: center 20px;
+        margin-top: -20px;
+    }
+    
+     .home-banner-rectangle {
+        right: 190px;
+    }
+}
+
+@media (min-width: 1600px) and (max-width: 1699px) {
+    .home-banner {
+        background-position: center 40px;
+        margin-top: -40px;
+    }
+    
+     .home-banner-rectangle {
+        right: 150px;
+    }
+}
+
+
+@media (min-width: 1500px) and (max-width: 1599px) {
+    .home-banner {
+        background-position: center 80px;
+        margin-top: -80px;
+    }
+    
+     .home-banner-rectangle {
+        right: 100px;
+    }
+}
+
+@media (min-width: 1400px) and (max-width: 1499px) {
+    .home-banner {
+        background-position: center 110px;
+        margin-top: -110px;
+    }
+    
+     .home-banner-rectangle {
+        right: 75px;
+    }
+}
+
+@media (min-width: 1300px) and (max-width: 1399px) {
+    .home-banner {
+        background-position: center 150px;
+        margin-top: -150px;
+    }
+    
+     .home-banner-rectangle {
+        right: 10px;
+    }
+}

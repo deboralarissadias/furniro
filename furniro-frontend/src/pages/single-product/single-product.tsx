@@ -53,24 +53,24 @@ const SingleProduct: React.FC = () => {
     }
   };
 
-  const fetchCategory = async () => {
-    setLoading(true);
-    try {
-      const categoryId = product.category_id;
-      const url = GET_CATEGORY.replace("{id}", `${categoryId}`);
-      const response = await fetch(url); 
-      const dataCategory = await response.json();
-      console.log(dataCategory);
-      setCategory(dataCategory);
-      setLoading(false);
-    } catch (error) {
-      console.error("Erro ao buscar categoria:", error);
-      setLoading(false); 
-    }
-  };
-
   useEffect(() => {
-    // Fazendo a requisição para o endpoint
+    // Fazendo a requisição para o endpoint pelo ID da categoria
+    const fetchCategory = async (id: number) => {
+      setLoading(true);
+      try {
+        const categoryId = id;
+        const url = GET_CATEGORY.replace("{id}", `${categoryId}`);
+        const response = await fetch(url); 
+        const dataCategory = await response.json();
+        setCategory(dataCategory);
+        setLoading(false);
+      } catch (error) {
+        console.error("Erro ao buscar categoria:", error);
+        setLoading(false); 
+      }
+    };
+
+    // Fazendo a requisição para o endpoint pelo ID do produto
     const fetchProduct = async () => {
       setLoading(true);
       const url = GET_PRODUCT.replace("{id}", `${id}`);
@@ -79,13 +79,13 @@ const SingleProduct: React.FC = () => {
         const response = await fetch(url); // Substitua pela URL real do seu endpoint
         const data = await response.json(); // Supondo que a resposta esteja em formato JSON
         setProduct(data); // Atualiza o estado com os produtos
-        setLoading(false); // Define que o carregamento foi concluído
         setSelectedImage(data.image_link);
-        fetchCategory();
-        fetchProducts(limit, data.category_id); // Chama a função para buscar os produtos relacionados
+        setTimeout(() => {
+          fetchCategory(data.category_id);
+          fetchProducts(limit, data.category_id); // Chama a função para buscar os produtos relacionados
+          setLoading(false); // Define que o carregamento foi concluído
+        }, 3000);
       } catch (error) {
-        setProduct(productsMock[0]);
-        fetchProducts(limit, productsMock[0].category_id); 
         console.error("Erro ao buscar produto pelo ID:", error);
         setLoading(false); // Em caso de erro, para o carregamento
       }
@@ -93,8 +93,6 @@ const SingleProduct: React.FC = () => {
 
     // Chama a função ao montar o componente
     fetchProduct();
-    fetchCategory();
-    fetchProducts(limit, product.category_id); // Chama a função para buscar os produtos relacionados
 
     scrollToTop();
   }, [id]);
@@ -182,8 +180,6 @@ const SingleProduct: React.FC = () => {
   const shareOnTwitter = () => {
     window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}`, "_blank");
   };
-
-  console.log("product", products);
 
   return (
     <div>
