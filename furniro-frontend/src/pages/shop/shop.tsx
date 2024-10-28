@@ -148,6 +148,9 @@ const Shop: React.FC = () => {
       } else {
         fetchProducts(currentPage, limit, sort, category);
       }
+
+      // Adiciona o parâmetro da URL ao aplicar o filtro
+      window.history.pushState({}, "", `/shop?category=${category}`);
     } else {
       // Limpa os filtros e faz a requisição padrão
       fetchProducts(currentPage, limit);
